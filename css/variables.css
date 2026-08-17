@@ -1,0 +1,154 @@
+/* ══════════════════════════════════════════════════════════════
+   CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste
+   FICHIER : css/variables.css
+   RÔLE   : Custom properties globales — palette, typographie,
+            échelles, transitions, z-index, layout.
+   SOURCE : Bible artistique du projet (Étape 0)
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ────────────────────────────────────────────────
+     PALETTE PRINCIPALE (obligatoire dans tout le site)
+     ──────────────────────────────────────────────── */
+  --color-bg-primary: #03050F;          /* Noir espace profond */
+  --color-bg-secondary: #080C1A;        /* Bleu nuit cosmique */
+  --color-card-bg: rgba(12, 18, 35, 0.85); /* Cartes semi-transparentes */
+  --color-card-bg-solid: #0C1223;
+
+  --color-accent-gold: #FFB830;         /* Or cosmique — Captain Future */
+  --color-accent-gold-soft: #FFE29A;    /* Or clair (dégradés) */
+  --color-accent-orange: #E8621A;       /* Orange pulp — action */
+  --color-accent-cyan: #00D4FF;         /* Cyan holographique */
+  --color-accent-purple: #7B2FBE;       /* Violet cosmique */
+  --color-accent-purple-soft: #A468E0;  /* Violet clair (hologrammes) */
+
+  /* Couleurs des Futuremen */
+  --color-futuremen-robot: #8CA0B8;     /* Grag — acier bleuté */
+  --color-futuremen-android: #A8D8A8;   /* Otho — vert organique */
+  --color-futuremen-brain: #FF6B6B;     /* Simon Wright — rouge vital */
+
+  /* Antagonistes */
+  --color-villain-red: #8B0000;         /* Ul Quorn — rouge sombre */
+  --color-villain-red-bright: #E52B2B;
+
+  /* Texte */
+  --color-text-primary: #E8EBF2;        /* Blanc cassé */
+  --color-text-secondary: #7A8BA0;      /* Gris bleu */
+
+  /* Bordures & lueurs */
+  --color-border-glow: rgba(255, 184, 48, 0.3);
+  --color-border-cyan-glow: rgba(0, 212, 255, 0.25);
+  --color-border-subtle: rgba(122, 139, 160, 0.18);
+
+  /* Sémantiques utilitaires */
+  --color-success: #4ADE80;
+  --color-warning: #FBBF24;
+  --color-danger: #F87171;
+  --color-info: #38BDF8;
+
+  /* ────────────────────────────────────────────────
+     DÉGRADÉS & LUEURS RÉUTILISABLES
+     ──────────────────────────────────────────────── */
+  --gradient-gold: linear-gradient(135deg, #FFE29A 0%, #FFB830 45%, #E8621A 100%);
+  --gradient-gold-text: linear-gradient(180deg, #FFF3D6 0%, #FFB830 55%, #D98A1F 100%);
+  --gradient-hero-overlay: radial-gradient(
+    ellipse at 50% 40%,
+    transparent 0%,
+    rgba(3, 5, 15, 0.45) 50%,
+    var(--color-bg-primary) 100%
+  );
+  --gradient-scanline: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(255, 255, 255, 0.015) 3px
+  );
+  --glow-gold: 0 0 18px rgba(255, 184, 48, 0.35), 0 0 60px rgba(255, 184, 48, 0.12);
+  --glow-cyan: 0 0 18px rgba(0, 212, 255, 0.30), 0 0 60px rgba(0, 212, 255, 0.10);
+  --glow-text: 0 0 12px rgba(255, 184, 48, 0.55);
+
+  /* ────────────────────────────────────────────────
+     TYPOGRAPHIE
+     ──────────────────────────────────────────────── */
+  --font-display: 'Orbitron', 'Exo 2', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Rajdhani', 'Exo 2', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Exo 2', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Share Tech Mono', ui-monospace, 'SFMono-Regular', monospace;
+  --font-pulp: 'Special Elite', 'Courier New', ui-monospace, monospace;
+
+  /* ────────────────────────────────────────────────
+     ÉCHELLE TYPOGRAPHIQUE (fluide, clamp)
+     ──────────────────────────────────────────────── */
+  --text-xs: clamp(0.68rem, 0.62rem + 0.25vw, 0.75rem);
+  --text-sm: clamp(0.80rem, 0.74rem + 0.3vw, 0.90rem);
+  --text-base: clamp(0.95rem, 0.88rem + 0.35vw, 1.05rem);
+  --text-md: clamp(1.05rem, 0.97rem + 0.4vw, 1.20rem);
+  --text-lg: clamp(1.25rem, 1.12rem + 0.6vw, 1.55rem);
+  --text-xl: clamp(1.60rem, 1.35rem + 1.2vw, 2.20rem);
+  --text-2xl: clamp(2.10rem, 1.70rem + 2vw, 3.20rem);
+  --text-3xl: clamp(2.80rem, 2.10rem + 3.2vw, 4.80rem);
+  --text-hero: clamp(3.20rem, 2.20rem + 5vw, 7.50rem);
+
+  /* ────────────────────────────────────────────────
+     ESPACEMENTS
+     ──────────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* ────────────────────────────────────────────────
+     TRANSITIONS & EASINGS
+     ──────────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-warp: cubic-bezier(0.85, 0, 0.15, 1);
+
+  --transition-fast: 160ms var(--ease-out-expo);
+  --transition-base: 320ms var(--ease-out-expo);
+  --transition-slow: 600ms var(--ease-out-expo);
+  --transition-warp: 900ms var(--ease-warp);
+
+  /* ────────────────────────────────────────────────
+     Z-INDEX (hiérarchie stricte)
+     ──────────────────────────────────────────────── */
+  --z-bg: 0;
+  --z-starfield: 1;
+  --z-nebulae: 2;
+  --z-particles: 3;
+  --z-content: 10;
+  --z-nav: 100;
+  --z-modal: 500;
+  --z-preloader: 1000;
+
+  /* ────────────────────────────────────────────────
+     LAYOUT
+     ──────────────────────────────────────────────── */
+  --nav-width: 92px;
+  --nav-width-collapsed: 64px;
+  --container-max: 1320px;
+  --container-narrow: 860px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+  --header-height: 72px;
+
+  /* ────────────────────────────────────────────────
+     OMBRES
+     ──────────────────────────────────────────────── */
+  --shadow-card: 0 18px 50px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 26px 70px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--color-border-glow);
+  --shadow-panel: 0 0 40px rgba(0, 212, 255, 0.06), inset 0 0 40px rgba(0, 212, 255, 0.03);
+}
+
+/* ────────────────────────────────────────────────
+   MODE CLAIR ? Non. Ce projet est fidèle à son
+   essence : l'espace est noir. Pas de mode clair.
+   ──────────────────────────────────────────────── */

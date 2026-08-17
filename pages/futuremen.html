@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Futuremen — L'Équipe de Captain Future | Encyclopédie Hyperréaliste</title>
+  <meta name="description" content="Fiches encyclopédiques complètes des quatre Futuremen : Captain Future (Curt Newton), Otho l'androïde, Grag le robot, Simon Wright le cerveau vivant, Joan Randall et le Marshal Ezra Gurney — pulps originaux d'Edmond Hamilton 1940-1951.">
+  <meta name="author" content="Captain Future Universe Project">
+  <meta name="theme-color" content="#03050F">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Les Futuremen — L'Équipe de Captain Future">
+  <meta property="og:description" content="Cinq héros, un serment, un système à protéger. Fiches complètes des pulps originaux 1940-1951.">
+  <meta property="og:image" content="../images/characters/futuremen_group_shot_official.jpg">
+  <meta property="og:locale" content="fr_FR">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2303050F' stroke='%23FFB830' stroke-width='3'/%3E%3Cpath d='M32 10 L38 28 L56 32 L38 36 L32 54 L26 36 L8 32 L26 28 Z' fill='%23FFB830'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Share+Tech+Mono&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/futuremen.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <style>
+    .preloader{position:fixed;inset:0;z-index:var(--z-preloader);background:var(--color-bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .8s var(--ease-out-expo),visibility .8s}
+    .preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .preloader-logo{width:110px;height:110px;animation:spinLogo 2.4s linear infinite}
+    .preloader-bar{width:min(320px,70vw);height:3px;background:rgba(255,184,48,.15);border-radius:999px;overflow:hidden}
+    .preloader-bar-fill{height:100%;width:0;background:var(--gradient-gold);border-radius:999px;animation:preloaderFill 2.2s var(--ease-out-expo) forwards}
+    .preloader-text{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.35em;color:var(--color-accent-cyan);text-transform:uppercase}
+  </style>
+</head>
+
+<body data-page="futuremen">
+
+  <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+    <svg class="preloader-logo" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2" stroke-dasharray="140 60"/>
+      <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+    </svg>
+    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    <p class="preloader-text">Chargement des dossiers du personnel…</p>
+  </div>
+
+  <canvas id="starfield" class="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-scanlines" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- ══════════════ NAVIGATION (identique index) ══════════════ -->
+  <header class="side-nav" id="sideNav" data-nav>
+    <div class="nav-logo" data-tooltip="Accueil">
+      <a href="../index.html" aria-label="Captain Future — Accueil">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2"/>
+          <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+        </svg>
+        <span class="nav-logo-text">CAPTAIN<br>FUTURE</span>
+      </a>
+    </div>
+
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="../index.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v9h13v-9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Accueil</span>
+      </a>
+      <a href="futuremen.html" class="nav-link" data-warp aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Futuremen</span>
+      </a>
+      <a href="romans.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 19a2 2 0 0 1 2-2h13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Romans</span>
+      </a>
+      <a href="lore.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v6m0 6v6M3 12h6m6 0h6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Lore</span>
+      </a>
+      <a href="technologie.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L9.5 22 19 9.5h-6.5z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Techno</span>
+      </a>
+      <a href="planetes.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="16" ry="5" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(-20 12 12)"/></svg>
+        <span>Atlas</span>
+      </a>
+      <a href="antagonistes.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-3.5 17.3c.5.1.7-.2.7-.5v-1.6c-2.9-.6-3.5-2-3.7-3.2-.2-.6-.6-1.1-1.2-1.3-.4-.2-.9-.4-.3-.8.6-.3 1.3.2 1.9.9.7 1 1.9 1.4 3 .7-.1-.6-.4-1.1-.3-1.7-2-.3-3.4-1.7-3.4-3.6 0-.8.3-1.6.8-2.2-.3-.9 0-1.9.6-2.7.9-.3 1.8.2 2.2.4.6-.2 1.3-.3 2-.3s1.4.1 2 .3c.4-.2 1.3-.7 2.2-.4.6.8.9 1.8.6 2.7.5.6.8 1.4.8 2.2 0 1.9-1.4 3.3-3.4 3.6.2.8 0 1.5-.4 2.1.7.5 1.6.4 2.2 0 .4-.3.8-.6 1.2-.6.4 0 .9.3.8.7-.1.4-.5.7-.9 1.1-.6.5-.7.9-.8 1.1 0 .6.2 1.2.2 1.2-.5.2-.9.3-1.1.3A9 9 0 0 0 12 3z" fill="currentColor"/></svg>
+        <span>Vilains</span>
+      </a>
+      <a href="bestiary.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2 3 4 5 7 5-1 4-3 6-5 7l2 6-4-3-4 3 2-6c-2-1-4-3-5-7 3 0 5-2 7-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span>Bestiaire</span>
+      </a>
+      <a href="galerie.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="9" r="2" fill="currentColor"/><path d="m4 17 5-4 4 3 4-5 3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span>Galerie</span>
+      </a>
+      <a href="sources.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span>Sources</span>
+      </a>
+    </nav>
+
+    <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navDrawer">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Fermer le menu">✕</button>
+    <nav class="drawer-links" aria-label="Navigation mobile"></nav>
+    <p class="drawer-foot data-readout">2940 AD — Système Solaire</p>
+  </div>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" class="site-main page-futuremen">
+
+    <!-- ══════════════ HERO DE PAGE ══════════════ -->
+    <header class="page-hero" data-parallax data-speed="0.22">
+      <img src="../images/characters/futuremen_group_shot_official.jpg" alt="" class="page-hero-bg" aria-hidden="true">
+      <div class="page-hero-overlay" aria-hidden="true"></div>
+      <div class="container page-hero-content">
+        <p class="hero-kicker hud-label" data-reveal>
+          <span class="hero-kicker-line"></span> Dossier du personnel · 2940 AD
+        </p>
+        <h1 class="display-hero page-hero-title" data-reveal data-delay="150">Les Futuremen</h1>
+        <p class="heading-sub" data-reveal data-delay="300">Cinq héros · un serment · un système à protéger</p>
+        <p class="lead page-hero-lead" data-reveal data-delay="450">
+          Un homme élevé par un robot, un androïde et un cerveau vivant. Une officière de la
+          Police Planétaire. Un vieux marshal. Ensemble, ils défendent les sept mondes du
+          système solaire contre toutes les menaces de l'espace.
+        </p>
+        <div class="hero-badges" data-reveal data-delay="600">
+          <span class="badge badge-gold">★ The Futuremen</span>
+          <span class="badge badge-green">✓ Fidèle aux pulps 1940-1951</span>
+          <span class="badge badge-cyan">Base de Tycho · Lune</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ══════════════ SÉLECTEUR + FICHES ══════════════ -->
+    <div class="container char-layout">
+      <aside class="char-sidebar" aria-label="Sélection du personnage">
+        <p class="hud-label char-sidebar-title">Personnel</p>
+
+        <button class="char-tab is-active" data-target="captain-future" aria-pressed="true">
+          <span class="char-tab-img"><img src="../images/characters/captain_future_portrait_official.jpg" alt="" aria-hidden="true"></span>
+          <span class="char-tab-meta">
+            <span class="char-tab-name">Captain Future</span>
+            <span class="char-tab-role">Le Wizard of Science</span>
+          </span>
+        </button>
+
+        <button class="char-tab" data-target="otho" aria-pressed="false">
+          <span class="char-tab-img"><img src="../images/characters/otho_android_portrait_official.jpg" alt="" aria-hidden="true"></span>
+          <span class="char-tab-meta">
+            <span class="char-tab-name">Otho</span>
+            <span class="char-tab-role">L'Androïde</span>
+          </span>
+        </button>
+
+        <button class="char-tab" data-target="grag" aria-pressed="false">
+          <span class="char-tab-img"><img src="../images/characters/grag_robot_portrait_official.jpg" alt="" aria-hidden="true"></span>
+          <span class="char-tab-meta">
+            <span class="char-tab-name">Grag</span>
+            <span class="char-tab-role">Le Robot</span>
+          </span>
+        </button>
+
+        <button class="char-tab" data-target="simon-wright" aria-pressed="false">
+          <span class="char-tab-img"><img src="../images/characters/simon_wright_brain_portrait_official.jpg" alt="" aria-hidden="true"></span>
+          <span class="char-tab-meta">
+            <span class="char-tab-name">Simon Wright</span>
+            <span class="char-tab-role">Le Cerveau Vivant</span>
+          </span>
+        </button>
+
+        <button class="char-tab" data-target="joan-randall" aria-pressed="false">
+          <span class="char-tab-img"><img src="../images/characters/joan_randall_portrait_official.jpg" alt="" aria-hidden="true"></span>
+          <span class="char-tab-meta">
+            <span class="char-tab-name">Joan Randall</span>
+            <span class="char-tab-role">Officière de la Police</span>
+          </span>
+        </button>
+
+        <button class="char-tab" data-target="ezra-gurney" aria-pressed="false">
+          <span class="char-tab-img"><img src="../images/characters/marshal_ezra_gurney_portrait_official.jpg" alt="" aria-hidden="true"></span>
+          <span class="char-tab-meta">
+            <span class="char-tab-name">Ezra Gurney</span>
+            <span class="char-tab-role">Marshal de la Police</span>
+          </span>
+        </button>
+
+        <p class="data-readout char-sidebar-hint">◄ ► pour naviguer</p>
+      </aside>
+
+      <div class="char-stage" id="charStage">
+
+        <!-- ══════════ FICHE CAPTAIN FUTURE ══════════ -->
+        <article class="char-fiche is-active" id="fiche-captain-future" data-character="captain-future" aria-labelledby="cf-name">
+          <figure class="fiche-hero">
+            <img src="../images/characters/captain_future_action_pose.jpg" alt="Captain Future en action sur la coque du Comet" loading="lazy">
+            <figcaption class="fiche-hero-caption hud-label">Curt Newton — le Wizard of Science</figcaption>
+          </figure>
+
+          <header class="fiche-head">
+            <div class="fiche-badges">
+              <span class="badge badge-gold">Commandant</span>
+              <span class="badge badge-cyan">Pilote du Comet</span>
+              <span class="badge badge-green">Lunaire d'origine</span>
+            </div>
+            <h2 class="display-title fiche-name" id="cf-name">Captain Future</h2>
+            <p class="heading-sub fiche-epithet">Le Wizard of Science — « Man of Tomorrow »</p>
+          </header>
+
+          <section class="fiche-block" aria-label="Biographie">
+            <h3 class="fiche-block-title heading-sub">Biographie</h3>
+            <p class="body-copy">
+              Curtis « Curt » Newton est né sur la Lune, dans la base scientifique de Tycho, fils
+              de Roger et Elaine Newton, deux des plus grands savants du système solaire. Alors
+              qu'il n'était qu'un nourrisson, des criminels attaquèrent la base pour s'emparer
+              des secrets de son père — et assassinèrent ses parents. Seul témoin de la tragédie :
+              Simon Wright, l'ami de Roger, dont l'esprit venait d'être préservé dans un boîtier
+              cristallin, et Grag, le robot construit par Roger Newton.
+            </p>
+            <p class="body-copy">
+              L'enfant fut élevé en secret par les trois créatures de la base : Simon lui enseigna
+              les sciences, Grag le protégea comme un fils, et Otho — le premier androïde parfait,
+              créé par Simon — fut son frère de jeu et son complice. Curt grandit dans la lumière
+              froide de la Lune, loin des mondes qu'il était destiné à défendre, bercé par les
+              récits d'une Terre et de planètes qu'il n'avait jamais vues.
+            </p>
+            <p class="body-copy">
+              À vingt-cinq ans, formé à toutes les sciences connues, au combat et au pilotage, il
+              fit le serment de venger ses parents et de protéger le système solaire. Prenant le
+              nom de « Captain Future », il embarqua à bord de The Comet, le vaisseau construit
+              dans les ateliers lunaires, et devint la terreur des criminels de l'espace — le
+              « Wizard of Science » que réclamaient les mondes en péril.
+            </p>
+          </section>
+
+          <section class="fiche-block" aria-label="Capacités">
+            <h3 class="fiche-block-title heading-sub">Capacités</h3>
+            <div class="stat-bars" data-stats data-values="85,95,90,92,100"></div>
+            <div class="radar-wrap" data-radar data-values="85,95,90,92,100" data-labels="Force,Intelligence,Agilité,Technologie,Loyauté" role="img" aria-label="Radar des capacités de Captain Future"></div>
+          </section>
+
+          <section class="fiche-block" aria-label="En paroles">
+            <h3 class="fiche-block-title heading-sub">En paroles</h3>
+            <blockquote class="pulp-quote">
+              « The Comet, Futuremen ! »
+              <footer>— Ordre de combat récurrent des pulps</footer>
+            </blockquote>
+            <blockquote class="pulp-quote">
+              « Le savant de la science du futur — et de son serment. »
+              <footer>— Présentation éditoriale, Captain Future Magazine</footer>
+            </blockquote>
+          </section>
+
+          <section class="fiche-block" aria-label="Moments clés">
+            <h3 class="fiche-block-title heading-sub">Moments clés</h3>
+            <div class="moments-grid">
+              <article class="moment-card">
+                <span class="moment-num display-title">01</span>
+                <h4 class="heading-sub">The Space Emperor</h4>
+                <p class="t-sm muted">Infiltration du vaisseau-monde de l'Empereur, en pleine Ceinture d'Astéroïdes — sa première grande victoire.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">02</span>
+                <h4 class="heading-sub">Calling Captain Future</h4>
+                <p class="t-sm muted">Face au docteur Zarro et à la Légion du Péril, il rencontre Joan Randall — et la Police Planétaire cesse de le traquer.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">03</span>
+                <h4 class="heading-sub">The Comet Kings</h4>
+                <p class="t-sm muted">Course contre la comète des Rois de l'Espace pour sauver les colonies de Jupiter — son plus grand défi.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="En images">
+            <h3 class="fiche-block-title heading-sub">En images</h3>
+            <div class="mini-gallery">
+              <img src="../images/characters/captain_future_action_fight.jpg" alt="Captain Future combat dans un dôme martien brisé" loading="lazy">
+              <img src="../images/characters/captain_future_action_pose.jpg" alt="Captain Future en apesanteur sur la coque du Comet" loading="lazy">
+              <img src="../images/characters/futuremen_mission_briefing.jpg" alt="Briefing de mission des Futuremen" loading="lazy">
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="Dans les textes originaux">
+            <h3 class="fiche-block-title heading-sub">Dans les textes originaux</h3>
+            <div class="pulp-extract">
+              <p class="pulp-extract-title data-readout">Captain Future Magazine · Hiver 1940 · « The Space Emperor »</p>
+              <p class="pulp-quote">
+                « On l'appelait le Wizard of Science. Il vivait sur la Lune, à l'écart des mondes
+                des hommes — mais quand un danger cosmique menaçait le système solaire, une voix
+                retentissait dans tous les postes de la Police Planétaire : "Captain Future,
+                le savant du futur !" »
+              </p>
+            </div>
+          </section>
+        </article>
+
+        <!-- ══════════ FICHE OTHO ══════════ -->
+        <article class="char-fiche" id="fiche-otho" data-character="otho" aria-labelledby="otho-name">
+          <figure class="fiche-hero">
+            <img src="../images/characters/otho_disguise_sequence.jpg" alt="Otho en pleine transformation de déguisement" loading="lazy">
+            <figcaption class="fiche-hero-caption hud-label">Otho — le caméléon du système</figcaption>
+          </figure>
+
+          <header class="fiche-head">
+            <div class="fiche-badges">
+              <span class="badge badge-green">Androïde</span>
+              <span class="badge badge-cyan">Morphing facial</span>
+              <span class="badge badge-gold">Espion attitré</span>
+            </div>
+            <h2 class="display-title fiche-name" id="otho-name">Otho</h2>
+            <p class="heading-sub fiche-epithet">Le premier androïde parfait de l'histoire</p>
+          </header>
+
+          <section class="fiche-block" aria-label="Biographie">
+            <h3 class="fiche-block-title heading-sub">Biographie</h3>
+            <p class="body-copy">
+              Otho est le premier androïde véritablement parfait jamais créé — l'œuvre la plus
+              ambitieuse de Simon Wright dans les ateliers lunaires. Sa peau légèrement verdâtre,
+              ses traits d'une finesse presque inhumaine et son corps agile le rendent
+              indiscernable d'un humain à première vue… jusqu'à ce qu'il sourie.
+            </p>
+            <p class="body-copy">
+              Sa capacité la plus précieuse est le morphing : Otho peut remodeler son visage et
+              sa silhouette pour imiter n'importe quel être humain. Grâce à ce don, il est
+              l'espion, le déguisé et l'infiltré de l'équipe — capable de traverser les lignes
+              ennemies déguisé en général, en serviteur, ou en criminel.
+            </p>
+            <p class="body-copy">
+              Sous son ironie constante et son goût de la provocation — il adore taquiner Grag —
+              Otho est d'une loyauté absolue envers Curt. Élevé aux côtés de l'enfant Newton, il
+              le considère comme un frère, et son intelligence vive, son agilité et son sang-froid
+              ont sauvé l'équipe plus de fois qu'il ne voudrait l'admettre.
+            </p>
+          </section>
+
+          <section class="fiche-block" aria-label="Capacités">
+            <h3 class="fiche-block-title heading-sub">Capacités</h3>
+            <div class="stat-bars" data-stats data-values="70,80,98,75,95"></div>
+            <div class="radar-wrap" data-radar data-values="70,80,98,75,95" data-labels="Force,Intelligence,Agilité,Technologie,Loyauté" role="img" aria-label="Radar des capacités d'Otho"></div>
+          </section>
+
+          <section class="fiche-block" aria-label="En paroles">
+            <h3 class="fiche-block-title heading-sub">En paroles</h3>
+            <blockquote class="pulp-quote">
+              « Pourquoi courir quand on peut planifier ? Pourquoi planifier quand on peut se déguiser ? »
+              <footer>— Otho, paraphrase des pulps</footer>
+            </blockquote>
+            <blockquote class="pulp-quote">
+              « Je suis l'androïde le plus parfait du système. Le plus modeste aussi. »
+              <footer>— Otho, à Grag</footer>
+            </blockquote>
+          </section>
+
+          <section class="fiche-block" aria-label="Moments clés">
+            <h3 class="fiche-block-title heading-sub">Moments clés</h3>
+            <div class="moments-grid">
+              <article class="moment-card">
+                <span class="moment-num display-title">01</span>
+                <h4 class="heading-sub">Calling Captain Future</h4>
+                <p class="t-sm muted">Infiltré dans la Légion du Péril du docteur Zarro, il démasque le complot des savants enlevés.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">02</span>
+                <h4 class="heading-sub">Quest Beyond the Stars</h4>
+                <p class="t-sm muted">Son déguisement le plus audacieux : il se fait passer pour un officier de la flotte ennemie au cœur de l'espace inconnu.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">03</span>
+                <h4 class="heading-sub">The Magician of Mars</h4>
+                <p class="t-sm muted">Il joue les serviteurs dans la cité du Sorcier pour libérer Joan et les otages.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="En images">
+            <h3 class="fiche-block-title heading-sub">En images</h3>
+            <div class="mini-gallery">
+              <img src="../images/characters/otho_disguise_sequence.jpg" alt="Séquence de transformation d'Otho" loading="lazy">
+              <img src="../images/characters/otho_android_portrait_official.jpg" alt="Portrait officiel d'Otho" loading="lazy">
+              <img src="../images/characters/futuremen_mission_briefing.jpg" alt="Briefing de mission des Futuremen" loading="lazy">
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="Dans les textes originaux">
+            <h3 class="fiche-block-title heading-sub">Dans les textes originaux</h3>
+            <div class="pulp-extract">
+              <p class="pulp-extract-title data-readout">Captain Future Magazine · 1940-1944</p>
+              <p class="pulp-quote">
+                « L'androïde pouvait modifier l'expression de son visage à volonté, et l'illusion
+                était parfaite. C'était là son arme la plus redoutable — nul ne savait jamais
+                quel visage portait Otho. »
+              </p>
+            </div>
+          </section>
+        </article>
+
+        <!-- ══════════ FICHE GRAG ══════════ -->
+        <article class="char-fiche" id="fiche-grag" data-character="grag" aria-labelledby="grag-name">
+          <figure class="fiche-hero">
+            <img src="../images/characters/grag_robot_strength_scene.jpg" alt="Grag soulevant un vaisseau ennemi pour protéger Captain Future" loading="lazy">
+            <figcaption class="fiche-hero-caption hud-label">Grag — la forteresse de l'équipe</figcaption>
+          </figure>
+
+          <header class="fiche-head">
+            <div class="fiche-badges">
+              <span class="badge badge-purple">Robot</span>
+              <span class="badge badge-gold">Force colossale</span>
+              <span class="badge badge-cyan">Protecteur</span>
+            </div>
+            <h2 class="display-title fiche-name" id="grag-name">Grag</h2>
+            <p class="heading-sub fiche-epithet">Le géant d'acier au cœur d'enfant</p>
+          </header>
+
+          <section class="fiche-block" aria-label="Biographie">
+            <h3 class="fiche-block-title heading-sub">Biographie</h3>
+            <p class="body-copy">
+              Grag fut construit par Roger Newton, le père de Curt, dans les ateliers de la base
+              lunaire : deux mètres cinquante d'acier gris-bleu poli, des jointures à l'ancienne
+              façon des machines du vingtième siècle, et une force capable de déformer le métal
+              à mains nues. Après la mort de son créateur, Grag devint le protecteur silencieux
+              de l'enfant Curt — le premier des trois « pères » du futur Captain Future.
+            </p>
+            <p class="body-copy">
+              Son esprit, simple et direct, est d'une loyauté sans faille. Grag ne comprend ni
+              les ruses d'Otho, ni les calculs de Simon, ni les subtilités des humains — mais il
+              comprend le devoir : protéger Curt, coûte que coûte. Ses yeux orange, de grandes
+              lentilles optiques, s'illuminent de fierté quand on le félicite.
+            </p>
+            <p class="body-copy">
+              Grag est le pilier physique de l'équipe : il enfonce les portes, soulève les
+              vaisseaux, encaisse les rayons. Mais c'est aussi une âme tendre qui s'attache aux
+              choses simples — et que les plaisanteries d'Otho laissent toujours perplexe.
+            </p>
+          </section>
+
+          <section class="fiche-block" aria-label="Capacités">
+            <h3 class="fiche-block-title heading-sub">Capacités</h3>
+            <div class="stat-bars" data-stats data-values="100,55,45,70,100"></div>
+            <div class="radar-wrap" data-radar data-values="100,55,45,70,100" data-labels="Force,Intelligence,Agilité,Technologie,Loyauté" role="img" aria-label="Radar des capacités de Grag"></div>
+          </section>
+
+          <section class="fiche-block" aria-label="En paroles">
+            <h3 class="fiche-block-title heading-sub">En paroles</h3>
+            <blockquote class="pulp-quote">
+              « Les portes s'ouvrent, ou elles n'existent plus. »
+              <footer>— Grag, paraphrase des pulps</footer>
+            </blockquote>
+            <blockquote class="pulp-quote">
+              « Je ne comprends pas toujours les plans de Simon. Mais je comprends mon devoir. »
+              <footer>— Grag</footer>
+            </blockquote>
+          </section>
+
+          <section class="fiche-block" aria-label="Moments clés">
+            <h3 class="fiche-block-title heading-sub">Moments clés</h3>
+            <div class="moments-grid">
+              <article class="moment-card">
+                <span class="moment-num display-title">01</span>
+                <h4 class="heading-sub">The Space Emperor</h4>
+                <p class="t-sm muted">Il ouvre la voie dans le vaisseau-monde de l'Empereur en déchirant les cloisons blindées.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">02</span>
+                <h4 class="heading-sub">Outlaws of the Moon</h4>
+                <p class="t-sm muted">Protégeant Curt seul contre trois hors-la-loi dans les cratères de Tycho, il tient jusqu'aux renforts.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">03</span>
+                <h4 class="heading-sub">Pardon My Iron Nerves</h4>
+                <p class="t-sm muted">Son heure de gloire : l'androïde malin mis à part, c'est Grag qui mène l'enquête mécanique à bien.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="En images">
+            <h3 class="fiche-block-title heading-sub">En images</h3>
+            <div class="mini-gallery">
+              <img src="../images/characters/grag_robot_strength_scene.jpg" alt="Grag soulevant un vaisseau ennemi" loading="lazy">
+              <img src="../images/characters/grag_robot_portrait_official.jpg" alt="Portrait officiel de Grag" loading="lazy">
+              <img src="../images/characters/futuremen_mission_briefing.jpg" alt="Briefing de mission des Futuremen" loading="lazy">
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="Dans les textes originaux">
+            <h3 class="fiche-block-title heading-sub">Dans les textes originaux</h3>
+            <div class="pulp-extract">
+              <p class="pulp-extract-title data-readout">Captain Future Magazine · 1940-1944</p>
+              <p class="pulp-quote">
+                « Grag, le robot d'acier, était le plus fort des trois. Sa voix grondait comme
+                un tonnerre lointain, mais dans ses lentilles orange brillait une dévotion
+                d'enfant pour le jeune homme qu'il avait vu naître. »
+              </p>
+            </div>
+          </section>
+        </article>
+
+        <!-- ══════════ FICHE SIMON WRIGHT ══════════ -->
+        <article class="char-fiche" id="fiche-simon-wright" data-character="simon-wright" aria-labelledby="simon-name">
+          <figure class="fiche-hero">
+            <img src="../images/characters/simon_wright_brain_computing.jpg" alt="Simon Wright projetant des hologrammes de calcul" loading="lazy">
+            <figcaption class="fiche-hero-caption hud-label">Simon Wright — le cerveau de l'équipe</figcaption>
+          </figure>
+
+          <header class="fiche-head">
+            <div class="fiche-badges">
+              <span class="badge badge-red">Cerveau vivant</span>
+              <span class="badge badge-gold">Mentor de Curt</span>
+              <span class="badge badge-cyan">Stratège</span>
+            </div>
+            <h2 class="display-title fiche-name" id="simon-name">Simon Wright</h2>
+            <p class="heading-sub fiche-epithet">Le Cerveau Vivant — la sagesse du système</p>
+          </header>
+
+          <section class="fiche-block" aria-label="Biographie">
+            <h3 class="fiche-block-title heading-sub">Biographie</h3>
+            <p class="body-copy">
+              Simon Wright était l'un des plus grands esprits scientifiques du système solaire —
+              et l'ami intime de Roger Newton. Lorsque son corps fut condamné, Roger préserva
+              son cerveau vivant dans un boîtier de cristal anti-bris aux montants de métal doré,
+              maintenu par de discrets bio-tubes. Flottant à hauteur de poitrine grâce à un champ
+              d'anti-gravité, Simon devint la mémoire et la raison de la base lunaire.
+            </p>
+            <p class="body-copy">
+              C'est lui qui veilla sur l'éducation de Curt après le meurtre des Newton : il lui
+              enseigna les mathématiques, la physique, la chimie, l'histoire des mondes — tout ce
+              qu'un futur « Wizard of Science » devait savoir. Ses deux capteurs optiques,
+              montés de chaque côté du boîtier, sont ses yeux ; sa voix, amplifiée par des
+              haut-parleurs, est calme, précise, infiniment patiente.
+            </p>
+            <p class="body-copy">
+              À bord de The Comet, Simon est le stratège : il calcule les trajectoires, analyse
+              les données ennemies et orchestre les plans les plus complexes. Son intelligence
+              est sans égale dans le système solaire — et sa loyauté envers Curt, celle d'un
+              père pour un fils.
+            </p>
+          </section>
+
+          <section class="fiche-block" aria-label="Capacités">
+            <h3 class="fiche-block-title heading-sub">Capacités</h3>
+            <div class="stat-bars" data-stats data-values="10,100,30,98,100"></div>
+            <div class="radar-wrap" data-radar data-values="10,100,30,98,100" data-labels="Force,Intelligence,Agilité,Technologie,Loyauté" role="img" aria-label="Radar des capacités de Simon Wright"></div>
+          </section>
+
+          <section class="fiche-block" aria-label="En paroles">
+            <h3 class="fiche-block-title heading-sub">En paroles</h3>
+            <blockquote class="pulp-quote">
+              « Le calcul est patient. L'ennemi, lui, est pressé. »
+              <footer>— Simon Wright, paraphrase des pulps</footer>
+            </blockquote>
+            <blockquote class="pulp-quote">
+              « J'ai perdu mon corps, Curt. Jamais ma volonté. »
+              <footer>— Simon Wright à Captain Future</footer>
+            </blockquote>
+          </section>
+
+          <section class="fiche-block" aria-label="Moments clés">
+            <h3 class="fiche-block-title heading-sub">Moments clés</h3>
+            <div class="moments-grid">
+              <article class="moment-card">
+                <span class="moment-num display-title">01</span>
+                <h4 class="heading-sub">The Space Emperor</h4>
+                <p class="t-sm muted">Son analyse des signaux de l'Empereur révèle la faiblesse du vaisseau-monde.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">02</span>
+                <h4 class="heading-sub">The Lost World of Time</h4>
+                <p class="t-sm muted">Il résout l'énigme temporelle qui piège l'équipe au-delà de l'histoire connue.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">03</span>
+                <h4 class="heading-sub">Star Trail to Glory</h4>
+                <p class="t-sm muted">Son génie calculatoire guide The Comet à travers une piste stellaire mortelle.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="En images">
+            <h3 class="fiche-block-title heading-sub">En images</h3>
+            <div class="mini-gallery">
+              <img src="../images/characters/simon_wright_brain_computing.jpg" alt="Simon Wright en mode calcul intensif" loading="lazy">
+              <img src="../images/characters/simon_wright_brain_portrait_official.jpg" alt="Portrait officiel de Simon Wright" loading="lazy">
+              <img src="../images/characters/futuremen_mission_briefing.jpg" alt="Briefing de mission des Futuremen" loading="lazy">
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="Dans les textes originaux">
+            <h3 class="fiche-block-title heading-sub">Dans les textes originaux</h3>
+            <div class="pulp-extract">
+              <p class="pulp-extract-title data-readout">Captain Future Magazine · 1940-1944</p>
+              <p class="pulp-quote">
+                « Dans son boîtier de cristal flottant, le cerveau de Simon Wright travaillait
+                avec une rapidité qui stupéfiait les machines elles-mêmes. Rien ne lui échappait
+                — il était les yeux de l'esprit et la conscience de l'équipe. »
+              </p>
+            </div>
+          </section>
+        </article>
+
+        <!-- ══════════ FICHE JOAN RANDALL ══════════ -->
+        <article class="char-fiche" id="fiche-joan-randall" data-character="joan-randall" aria-labelledby="joan-name">
+          <figure class="fiche-hero">
+            <img src="../images/characters/joan_randall_pilot_cockpit.jpg" alt="Joan Randall pilotant le Comet dans un champ d'astéroïdes" loading="lazy">
+            <figcaption class="fiche-hero-caption hud-label">Joan Randall — officière de la Police Planétaire</figcaption>
+          </figure>
+
+          <header class="fiche-head">
+            <div class="fiche-badges">
+              <span class="badge badge-cyan">Police Planétaire</span>
+              <span class="badge badge-gold">Pilote d'élite</span>
+              <span class="badge badge-green">Enquêtrice</span>
+            </div>
+            <h2 class="display-title fiche-name" id="joan-name">Joan Randall</h2>
+            <p class="heading-sub fiche-epithet">Officière de la Police Planétaire</p>
+          </header>
+
+          <section class="fiche-block" aria-label="Biographie">
+            <h3 class="fiche-block-title heading-sub">Biographie</h3>
+            <p class="body-copy">
+              Joan Randall est officière de la Police Planétaire — l'une des plus brillantes de
+              sa génération. Jeune, déterminée, formée au pilotage et à l'enquête, elle fut
+              d'abord chargée d'une mission délicate : identifier le mystérieux Captain Future,
+              ce justicier inconnu qui opérait hors de toute autorité.
+            </p>
+            <p class="body-copy">
+              Sa rencontre avec Curt Newton, lors de l'affaire du docteur Zarro, changea tout :
+              au lieu d'un hors-la-loi, elle découvrit un héros. Dès lors, Joan devint l'alliée
+              la plus fidèle de l'équipe — souvent la voix de la raison, toujours celle du
+              courage. Elle pilote The Comet aussi bien que Curt, et n'hésite jamais à descendre
+              la première sur un monde hostile.
+            </p>
+            <p class="body-copy">
+              Entre Joan et Curt, l'attirance est évidente mais jamais mièvre : ils se battent
+              côte à côte, se respectent, se taquinent — et le danger les sépare sans cesse.
+              Dans les pulps, elle n'est jamais la damoiselle en détresse : elle est l'officière
+              qui tire, enquête et sauve, elle aussi, son équipage.
+            </p>
+          </section>
+
+          <section class="fiche-block" aria-label="Capacités">
+            <h3 class="fiche-block-title heading-sub">Capacités</h3>
+            <div class="stat-bars" data-stats data-values="72,85,80,78,95"></div>
+            <div class="radar-wrap" data-radar data-values="72,85,80,78,95" data-labels="Force,Intelligence,Agilité,Technologie,Loyauté" role="img" aria-label="Radar des capacités de Joan Randall"></div>
+          </section>
+
+          <section class="fiche-block" aria-label="En paroles">
+            <h3 class="fiche-block-title heading-sub">En paroles</h3>
+            <blockquote class="pulp-quote">
+              « Je suis de la Police, Newton. Je ne reste pas à l'arrière. »
+              <footer>— Joan Randall, paraphrase des pulps</footer>
+            </blockquote>
+            <blockquote class="pulp-quote">
+              « Le système solaire mérite mieux que des héros de légende. Il mérite la justice. »
+              <footer>— Joan Randall</footer>
+            </blockquote>
+          </section>
+
+          <section class="fiche-block" aria-label="Moments clés">
+            <h3 class="fiche-block-title heading-sub">Moments clés</h3>
+            <div class="moments-grid">
+              <article class="moment-card">
+                <span class="moment-num display-title">01</span>
+                <h4 class="heading-sub">Calling Captain Future</h4>
+                <p class="t-sm muted">Sa première enquête : traquer Captain Future… pour finir à ses côtés contre la Légion du Péril.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">02</span>
+                <h4 class="heading-sub">The Magician of Mars</h4>
+                <p class="t-sm muted">Captive du Sorcier, elle retourne la situation et sabote son arme au moment crucial.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">03</span>
+                <h4 class="heading-sub">The Comet Kings</h4>
+                <p class="t-sm muted">Aux commandes d'une navette de sauvetage, elle évacue les colonies de Jupiter sous le feu des Rois.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="En images">
+            <h3 class="fiche-block-title heading-sub">En images</h3>
+            <div class="mini-gallery">
+              <img src="../images/characters/joan_randall_pilot_cockpit.jpg" alt="Joan Randall aux commandes du Comet" loading="lazy">
+              <img src="../images/characters/joan_randall_portrait_official.jpg" alt="Portrait officiel de Joan Randall" loading="lazy">
+              <img src="../images/characters/futuremen_mission_briefing.jpg" alt="Briefing de mission des Futuremen" loading="lazy">
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="Dans les textes originaux">
+            <h3 class="fiche-block-title heading-sub">Dans les textes originaux</h3>
+            <div class="pulp-extract">
+              <p class="pulp-extract-title data-readout">Captain Future Magazine · Printemps 1940 · « Calling Captain Future »</p>
+              <p class="pulp-quote">
+                « La jeune officière de la Police Planétaire était l'une des rares femmes de la
+                force à commander une patrouille spatiale — et elle avait prouvé cent fois qu'elle
+                la méritait. »
+              </p>
+            </div>
+          </section>
+        </article>
+
+        <!-- ══════════ FICHE EZRA GURNEY ══════════ -->
+        <article class="char-fiche" id="fiche-ezra-gurney" data-character="ezra-gurney" aria-labelledby="gurney-name">
+          <figure class="fiche-hero">
+            <img src="../images/characters/marshal_ezra_gurney_portrait_official.jpg" alt="Le Marshal Ezra Gurney au quartier général de la Police Planétaire" loading="lazy">
+            <figcaption class="fiche-hero-caption hud-label">Ezra Gurney — le vieux marshal du système</figcaption>
+          </figure>
+
+          <header class="fiche-head">
+            <div class="fiche-badges">
+              <span class="badge badge-gold">Marshal</span>
+              <span class="badge badge-cyan">Chef de la Police</span>
+              <span class="badge badge-green">Vétéran</span>
+            </div>
+            <h2 class="display-title fiche-name" id="gurney-name">Ezra Gurney</h2>
+            <p class="heading-sub fiche-epithet">Marshal de la Police Planétaire</p>
+          </header>
+
+          <section class="fiche-block" aria-label="Biographie">
+            <h3 class="fiche-block-title heading-sub">Biographie</h3>
+            <p class="body-copy">
+              Ezra Gurney est le Marshal de la Police Planétaire — le chef, le vieux loup, la
+              mémoire vivante de la loi dans le système solaire. Soixante ans, cheveux blancs
+              comme les poussières de Mars, une allure de shérif de l'espace : il a connu les
+              grandes guerres, les grandes chasses et les grandes pertes.
+            </p>
+            <p class="body-copy">
+              Longtemps, Gurney se méfia de Captain Future — un justicier hors la loi est toujours
+              suspect aux yeux d'un marshal. Mais à l'épreuve des missions, il reconnut en Curt
+              Newton le meilleur allié que la loi pouvait rêver, et devint son plus solide appui
+              au sein des institutions : c'est lui qui transmet les appels de détresse, couvre
+              les opérations officieuses et défend l'équipe devant le Parlement Planétaire.
+            </p>
+            <p class="body-copy">
+              Sous sa rudesse, Gurney est un homme de sagesse : il a vu trop de criminels, trop
+              de mondes en flammes, pour ne pas savoir que la justice a besoin de héros autant
+              que de règlements. Sa confiance est rare — et lorsqu'elle est donnée, elle est
+              totale.
+            </p>
+          </section>
+
+          <section class="fiche-block" aria-label="Capacités">
+            <h3 class="fiche-block-title heading-sub">Capacités</h3>
+            <div class="stat-bars" data-stats data-values="65,88,60,80,100"></div>
+            <div class="radar-wrap" data-radar data-values="65,88,60,80,100" data-labels="Force,Intelligence,Agilité,Technologie,Loyauté" role="img" aria-label="Radar des capacités d'Ezra Gurney"></div>
+          </section>
+
+          <section class="fiche-block" aria-label="En paroles">
+            <h3 class="fiche-block-title heading-sub">En paroles</h3>
+            <blockquote class="pulp-quote">
+              « J'ai passé ma vie à traquer des hommes. Puis j'ai compris qu'il y avait pire que
+              les hors-la-loi : ceux qui se croient au-dessus de la loi. »
+              <footer>— Ezra Gurney, paraphrase des pulps</footer>
+            </blockquote>
+            <blockquote class="pulp-quote">
+              « Je n'aime pas les justiciers, Newton. Mais j'aime encore moins les tyrans. »
+              <footer>— Ezra Gurney à Captain Future</footer>
+            </blockquote>
+          </section>
+
+          <section class="fiche-block" aria-label="Moments clés">
+            <h3 class="fiche-block-title heading-sub">Moments clés</h3>
+            <div class="moments-grid">
+              <article class="moment-card">
+                <span class="moment-num display-title">01</span>
+                <h4 class="heading-sub">Calling Captain Future</h4>
+                <p class="t-sm muted">Il ordonne l'enquête sur Captain Future — et devient, à contre-cœur d'abord, son meilleur allié institutionnel.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">02</span>
+                <h4 class="heading-sub">The Triumph of Captain Future</h4>
+                <p class="t-sm muted">Devant le Parlement Planétaire, il prend la défense publique de l'équipe accusée à tort.</p>
+              </article>
+              <article class="moment-card">
+                <span class="moment-num display-title">03</span>
+                <h4 class="heading-sub">Outlaws of the Moon</h4>
+                <p class="t-sm muted">Il mène la traque des évadés sur la Lune, aux portes mêmes de la base de Tycho.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="En images">
+            <h3 class="fiche-block-title heading-sub">En images</h3>
+            <div class="mini-gallery">
+              <img src="../images/characters/marshal_ezra_gurney_portrait_official.jpg" alt="Portrait officiel du Marshal Ezra Gurney" loading="lazy">
+              <img src="../images/planets/lunar_base_tycho_exterior.jpg" alt="La base lunaire de Tycho" loading="lazy">
+              <img src="../images/characters/futuremen_mission_briefing.jpg" alt="Briefing de mission des Futuremen" loading="lazy">
+            </div>
+          </section>
+
+          <section class="fiche-block" aria-label="Dans les textes originaux">
+            <h3 class="fiche-block-title heading-sub">Dans les textes originaux</h3>
+            <div class="pulp-extract">
+              <p class="pulp-extract-title data-readout">Captain Future Magazine · 1940-1944</p>
+              <p class="pulp-quote">
+                « Le vieux marshal avait l'air d'un homme de la frontière perdu parmi les écrans
+                et les rayons — mais son regard d'acier avait vu plus de vérités que tous les
+                détecteurs de mensonges du système. »
+              </p>
+            </div>
+          </section>
+        </article>
+
+      </div><!-- /char-stage -->
+    </div><!-- /char-layout -->
+
+    <!-- ══════════════ GRAPHE DES RELATIONS ══════════════ -->
+    <section class="relations-section" aria-label="Le réseau des relations">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">Le Réseau des Relations</h2>
+          <p class="section-sub lead">Cliquez sur un nœud pour ouvrir sa fiche · survolez pour explorer les liens</p>
+        </div>
+
+        <div class="graph-card" data-reveal>
+          <svg id="relationsGraph" viewBox="0 0 900 560" role="img" aria-label="Graphe des relations entre les personnages">
+            <defs>
+              <filter id="graphGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <clipPath id="clipCF"><circle cx="450" cy="235" r="40"/></clipPath>
+              <clipPath id="clipOtho"><circle cx="175" cy="360" r="40"/></clipPath>
+              <clipPath id="clipGrag"><circle cx="725" cy="360" r="40"/></clipPath>
+              <clipPath id="clipSimon"><circle cx="450" cy="95" r="40"/></clipPath>
+              <clipPath id="clipJoan"><circle cx="265" cy="495" r="40"/></clipPath>
+              <clipPath id="clipGurney"><circle cx="635" cy="495" r="40"/></clipPath>
+            </defs>
+
+            <!-- Liens -->
+            <g class="graph-edges">
+              <line x1="450" y1="235" x2="450" y2="95" data-edge="cf-simon"/>
+              <line x1="450" y1="235" x2="175" y2="360" data-edge="cf-otho"/>
+              <line x1="450" y1="235" x2="725" y2="360" data-edge="cf-grag"/>
+              <line x1="450" y1="235" x2="265" y2="495" data-edge="cf-joan"/>
+              <line x1="450" y1="235" x2="635" y2="495" data-edge="cf-gurney"/>
+              <line x1="175" y1="360" x2="725" y2="360" data-edge="otho-grag"/>
+              <line x1="450" y1="95" x2="175" y2="360" data-edge="simon-otho"/>
+              <line x1="265" y1="495" x2="635" y2="495" data-edge="joan-gurney"/>
+            </g>
+
+            <!-- Étiquettes des liens -->
+            <g class="graph-edge-labels">
+              <text x="500" y="140" data-edge-label="cf-simon">Mentor / Élève</text>
+              <text x="290" y="290" data-edge-label="cf-otho">Frères d'armes</text>
+              <text x="560" y="300" data-edge-label="cf-grag">Lien filial</text>
+              <text x="330" y="445" data-edge-label="cf-joan">Alliés · Amour</text>
+              <text x="520" y="455" data-edge-label="cf-gurney">Alliés</text>
+              <text x="400" y="350" data-edge-label="otho-grag">Rivalité amicale</text>
+              <text x="240" y="230" data-edge-label="simon-otho">Créateur</text>
+              <text x="420" y="525" data-edge-label="joan-gurney">Hiérarchie</text>
+            </g>
+
+            <!-- Nœuds -->
+            <g class="graph-node" data-node="captain-future" transform="translate(450 235)">
+              <circle r="42" class="node-ring"/><circle r="40" class="node-core"/>
+              <image href="../images/characters/captain_future_portrait_official.jpg" x="-40" y="-40" width="80" height="80" clip-path="url(#clipCF)"/>
+              <text y="62" class="node-name">Captain Future</text>
+            </g>
+            <g class="graph-node" data-node="otho" transform="translate(175 360)">
+              <circle r="42" class="node-ring"/><circle r="40" class="node-core"/>
+              <image href="../images/characters/otho_android_portrait_official.jpg" x="-40" y="-40" width="80" height="80" clip-path="url(#clipOtho)"/>
+              <text y="62" class="node-name">Otho</text>
+            </g>
+            <g class="graph-node" data-node="grag" transform="translate(725 360)">
+              <circle r="42" class="node-ring"/><circle r="40" class="node-core"/>
+              <image href="../images/characters/grag_robot_portrait_official.jpg" x="-40" y="-40" width="80" height="80" clip-path="url(#clipGrag)"/>
+              <text y="62" class="node-name">Grag</text>
+            </g>
+            <g class="graph-node" data-node="simon-wright" transform="translate(450 95)">
+              <circle r="42" class="node-ring"/><circle r="40" class="node-core"/>
+              <image href="../images/characters/simon_wright_brain_portrait_official.jpg" x="-40" y="-40" width="80" height="80" clip-path="url(#clipSimon)"/>
+              <text y="62" class="node-name">Simon Wright</text>
+            </g>
+            <g class="graph-node" data-node="joan-randall" transform="translate(265 495)">
+              <circle r="42" class="node-ring"/><circle r="40" class="node-core"/>
+              <image href="../images/characters/joan_randall_portrait_official.jpg" x="-40" y="-40" width="80" height="80" clip-path="url(#clipJoan)"/>
+              <text y="62" class="node-name">Joan Randall</text>
+            </g>
+            <g class="graph-node" data-node="ezra-gurney" transform="translate(635 495)">
+              <circle r="42" class="node-ring"/><circle r="40" class="node-core"/>
+              <image href="../images/characters/marshal_ezra_gurney_portrait_official.jpg" x="-40" y="-40" width="80" height="80" clip-path="url(#clipGurney)"/>
+              <text y="62" class="node-name">Ezra Gurney</text>
+            </g>
+          </svg>
+          <p class="data-readout graph-note">Dossier 2940-7 · Classification : Secret Planétaire</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ BRIEFING ÉQUIPE ══════════════ -->
+    <section class="briefing-section" aria-label="L'esprit d'équipe">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">L'Esprit d'Équipe</h2>
+          <p class="section-sub lead">Quatre volontés, un seul serment</p>
+        </div>
+        <div class="briefing-grid">
+          <figure class="briefing-media" data-reveal>
+            <img src="../images/characters/futuremen_mission_briefing.jpg" alt="Les quatre Futuremen en briefing autour de la carte holographique du système solaire" loading="lazy">
+          </figure>
+          <div class="briefing-copy" data-reveal data-delay="150">
+            <p class="body-copy">
+              La force des Futuremen ne vient pas de leurs armes, ni même de leurs talents — mais
+              de leur complémentarité. L'intelligence de Simon, la force de Grag, la ruse d'Otho,
+              la détermination de Curt : quatre visages de la même cause.
+            </p>
+            <p class="body-copy">
+              Et autour d'eux, la loi : Joan Randall sur le terrain, Ezra Gurney dans les
+              couloirs du pouvoir. C'est toute une époque de la science-fiction pulp qui vit
+              ici — l'idée qu'un petit groupe de héros, unis par un serment, peut sauver des
+              mondes.
+            </p>
+            <blockquote class="pulp-quote">
+              « La science ne fait pas les héros. Elle leur donne des outils. »
+              <footer>— L'esprit des pulps d'Edmond Hamilton</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════ FOOTER (identique index) ══════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <svg class="footer-logo" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2"/>
+          <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+        </svg>
+        <p class="display-title t-md">CAPTAIN FUTURE</p>
+        <p class="t-sm muted">Le Wizard of Science du 25ème siècle.<br>Encyclopédie hyperréaliste des pulps 1940-1951.</p>
+      </div>
+      <nav class="footer-col" aria-label="Univers">
+        <h4 class="footer-title heading-sub">L'Univers</h4>
+        <a href="futuremen.html" data-warp>Les Futuremen</a>
+        <a href="lore.html" data-warp>Le Lore</a>
+        <a href="planetes.html" data-warp>L'Atlas Solaire</a>
+        <a href="bestiary.html" data-warp>Le Bestiaire</a>
+      </nav>
+      <nav class="footer-col" aria-label="Ressources">
+        <h4 class="footer-title heading-sub">Ressources</h4>
+        <a href="romans.html" data-warp>Les 27 Romans</a>
+        <a href="galerie.html" data-warp>La Galerie</a>
+        <a href="sources.html" data-warp>Domaine Public</a>
+        <a href="https://archive.org/search?query=%22captain+future%22" target="_blank" rel="noopener">Internet Archive ↗</a>
+      </nav>
+      <div class="footer-col">
+        <h4 class="footer-title heading-sub">Coordonnées Spatiales</h4>
+        <p class="t-sm muted">Système Solaire — 2940 AD<br>Orbite lunaire · Base de Tycho<br>Salle de communication K-7<br><span class="data-readout">41°23′S · 12°31′W (cratère Tycho)</span></p>
+      </div>
+    </div>
+    <div class="footer-legal container">
+      <p class="t-xs muted">
+        © 2940 Captain Future Universe Project — Site de référence académique et culturel.
+        Basé sur les pulps originaux d'Edmond Hamilton (1940-1951), domaine public aux États-Unis.
+        Les citations courtes sont des paraphrases de l'esprit des textes originaux. Statut européen :
+        vie + 70 ans (domaine public UE prévu en 2048). Aucune affinité avec les adaptations ultérieures
+        protégées. Consulter un juriste avant exploitation commerciale.
+      </p>
+      <p class="t-xs muted">Fait avec passion pour la SF pulp — dans un futur radieux du passé.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Simon (easter egg) -->
+  <div class="toast" id="simonToast" role="status" aria-live="polite" hidden>
+    <span class="toast-icon" aria-hidden="true">🧠</span>
+    <div>
+      <p class="toast-title hud-label">Simon Wright</p>
+      <p class="toast-msg">« Mes capteurs indiquent que vous avez cliqué cinq fois. Je suis flatté, Curt. Le système n'est pas en danger. »</p>
+    </div>
+  </div>
+
+  <div class="warp-overlay" id="warpOverlay" aria-hidden="true">
+    <div class="warp-lines"></div>
+    <span class="warp-text hud-label">Transition warp…</span>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+
+  <script src="../js/starfield.js"></script>
+  <script src="../js/parallax.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/transitions.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/futuremen.js"></script>
+</body>
+</html>

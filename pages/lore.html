@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Lore de l'Univers Hamiltonien — Captain Future | Encyclopédie Hyperréaliste</title>
+  <meta name="description" content="L'univers de Captain Future en 2940 après J.-C. : histoire du système solaire, origine de Curt Newton, création des Futuremen, société interplanétaire — d'après les pulps originaux d'Edmond Hamilton 1940-1951.">
+  <meta name="author" content="Captain Future Universe Project">
+  <meta name="theme-color" content="#03050F">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Le Lore — L'Univers Hamiltonien de Captain Future">
+  <meta property="og:description" content="L'histoire du système solaire en 2940, l'origine de Curt Newton, la création des Futuremen.">
+  <meta property="og:image" content="../images/characters/curt_newton_childhood_moon.jpg">
+  <meta property="og:locale" content="fr_FR">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2303050F' stroke='%23FFB830' stroke-width='3'/%3E%3Cpath d='M32 10 L38 28 L56 32 L38 36 L32 54 L26 36 L8 32 L26 28 Z' fill='%23FFB830'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Share+Tech+Mono&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/lore.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <style>
+    .preloader{position:fixed;inset:0;z-index:var(--z-preloader);background:var(--color-bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .8s var(--ease-out-expo),visibility .8s}
+    .preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .preloader-logo{width:110px;height:110px;animation:spinLogo 2.4s linear infinite}
+    .preloader-bar{width:min(320px,70vw);height:3px;background:rgba(255,184,48,.15);border-radius:999px;overflow:hidden}
+    .preloader-bar-fill{height:100%;width:0;background:var(--gradient-gold);border-radius:999px;animation:preloaderFill 2.2s var(--ease-out-expo) forwards}
+    .preloader-text{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.35em;color:var(--color-accent-cyan);text-transform:uppercase}
+  </style>
+</head>
+
+<body data-page="lore">
+
+  <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+    <svg class="preloader-logo" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2" stroke-dasharray="140 60"/>
+      <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+    </svg>
+    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    <p class="preloader-text">Compilation des archives historiques…</p>
+  </div>
+
+  <canvas id="starfield" class="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-scanlines" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <header class="side-nav" id="sideNav" data-nav>
+    <div class="nav-logo" data-tooltip="Accueil">
+      <a href="../index.html" aria-label="Captain Future — Accueil">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2"/>
+          <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+        </svg>
+        <span class="nav-logo-text">CAPTAIN<br>FUTURE</span>
+      </a>
+    </div>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="../index.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v9h13v-9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Accueil</span></a>
+      <a href="futuremen.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Futuremen</span></a>
+      <a href="romans.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 19a2 2 0 0 1 2-2h13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Romans</span></a>
+      <a href="lore.html" class="nav-link" data-warp aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v6m0 6v6M3 12h6m6 0h6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Lore</span></a>
+      <a href="technologie.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L9.5 22 19 9.5h-6.5z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Techno</span></a>
+      <a href="planetes.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="16" ry="5" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(-20 12 12)"/></svg><span>Atlas</span></a>
+      <a href="antagonistes.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-3.5 17.3c.5.1.7-.2.7-.5v-1.6c-2.9-.6-3.5-2-3.7-3.2-.2-.6-.6-1.1-1.2-1.3-.4-.2-.9-.4-.3-.8.6-.3 1.3.2 1.9.9.7 1 1.9 1.4 3 .7-.1-.6-.4-1.1-.3-1.7-2-.3-3.4-1.7-3.4-3.6 0-.8.3-1.6.8-2.2-.3-.9 0-1.9.6-2.7.9-.3 1.8.2 2.2.4.6-.2 1.3-.3 2-.3s1.4.1 2 .3c.4-.2 1.3-.7 2.2-.4.6.8.9 1.8.6 2.7.5.6.8 1.4.8 2.2 0 1.9-1.4 3.3-3.4 3.6.2.8 0 1.5-.4 2.1.7.5 1.6.4 2.2 0 .4-.3.8-.6 1.2-.6.4 0 .9.3.8.7-.1.4-.5.7-.9 1.1-.6.5-.7.9-.8 1.1 0 .6.2 1.2.2 1.2-.5.2-.9.3-1.1.3A9 9 0 0 0 12 3z" fill="currentColor"/></svg><span>Vilains</span></a>
+      <a href="bestiary.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2 3 4 5 7 5-1 4-3 6-5 7l2 6-4-3-4 3 2-6c-2-1-4-3-5-7 3 0 5-2 7-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Bestiaire</span></a>
+      <a href="galerie.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="9" r="2" fill="currentColor"/><path d="m4 17 5-4 4 3 4-5 3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Galerie</span></a>
+      <a href="sources.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Sources</span></a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navDrawer"><span></span><span></span><span></span></button>
+  </header>
+
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Fermer le menu">✕</button>
+    <nav class="drawer-links" aria-label="Navigation mobile"></nav>
+    <p class="drawer-foot data-readout">2940 AD — Système Solaire</p>
+  </div>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" class="site-main">
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <header class="page-hero" data-parallax data-speed="0.22">
+      <img src="../images/characters/curt_newton_childhood_moon.jpg" alt="" class="page-hero-bg" aria-hidden="true">
+      <div class="page-hero-overlay" aria-hidden="true"></div>
+      <div class="container page-hero-content">
+        <p class="hero-kicker hud-label" data-reveal>
+          <span class="hero-kicker-line"></span> Archives historiques · 2940 AD
+        </p>
+        <h1 class="display-hero page-hero-title" data-reveal data-delay="150">Le Lore</h1>
+        <p class="heading-sub" data-reveal data-delay="300">L'univers hamiltonien — histoire, origines, société</p>
+        <p class="lead page-hero-lead" data-reveal data-delay="450">
+          Un système solaire peuplé de sept mondes habités, une civilisation interplanétaire
+          vieille de mille ans, et au cœur de tout cela : l'histoire d'un orphelin devenu la
+          légende du système.
+        </p>
+        <div class="hero-badges" data-reveal data-delay="600">
+          <span class="badge badge-gold">★ 2940 AD</span>
+          <span class="badge badge-cyan">7 mondes habités</span>
+          <span class="badge badge-green">✓ Fidèle aux pulps</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ══════════════ ONGLETS DE SECTIONS ══════════════ -->
+    <section class="lore-section" aria-label="Sections du lore">
+      <div class="container">
+        <div class="lore-tabs" role="tablist" aria-label="Sections du lore">
+          <button class="lore-tab is-active" data-lore-tab="histoire" role="tab" aria-selected="true" aria-controls="panel-histoire">Histoire du Système</button>
+          <button class="lore-tab" data-lore-tab="origine" role="tab" aria-selected="false" aria-controls="panel-origine" tabindex="-1">Origine de CF</button>
+          <button class="lore-tab" data-lore-tab="creation" role="tab" aria-selected="false" aria-controls="panel-creation" tabindex="-1">La Création des Futuremen</button>
+          <button class="lore-tab" data-lore-tab="societe" role="tab" aria-selected="false" aria-controls="panel-societe" tabindex="-1">La Société 2940</button>
+        </div>
+
+        <!-- ── PANEL 1 : HISTOIRE ── -->
+        <div class="lore-panel is-active" data-lore-panel="histoire" id="panel-histoire" role="tabpanel" aria-labelledby="tab-histoire">
+          <h2 class="heading-section" data-reveal>Histoire du Système Solaire</h2>
+          <p class="lead lore-intro" data-reveal>
+            De la première colonie lunaire aux guerres interplanétaires, voici la chronologie
+            qui a façonné les sept mondes que Captain Future a juré de protéger.
+          </p>
+
+          <ol class="lore-timeline">
+            <li class="lore-tl-item">
+              <span class="lore-tl-date display-title">≈ 2100</span>
+              <div class="lore-tl-card">
+                <h3 class="heading-sub">La Première Lune</h3>
+                <p class="body-copy">Les premières colonies permanentes s'établissent sur la Lune. C'est le premier pas de l'humanité hors de la Terre — et le début de tout.</p>
+              </div>
+            </li>
+            <li class="lore-tl-item">
+              <span class="lore-tl-date display-title">≈ 2200</span>
+              <div class="lore-tl-card">
+                <h3 class="heading-sub">L'Ère des Vaisseaux Solaires</h3>
+                <p class="body-copy">La propulsion cosmique est maîtrisée. Mars est atteinte, puis Vénus, puis les colonies flottantes de Jupiter. Le système solaire devient une civilisation.</p>
+              </div>
+            </li>
+            <li class="lore-tl-item">
+              <span class="lore-tl-date display-title">≈ 2500</span>
+              <div class="lore-tl-card">
+                <h3 class="heading-sub">Les Guerres des Mondes</h3>
+                <p class="body-copy">Des conflits sanglants opposent les colonies naissantes. Les vieilles civilisations martiennes et vénusiennes, jadis fières, déclinent. Le système saigne.</p>
+              </div>
+            </li>
+            <li class="lore-tl-item">
+              <span class="lore-tl-date display-title">≈ 2800</span>
+              <div class="lore-tl-card">
+                <h3 class="heading-sub">La Naissance de la Police Planétaire</h3>
+                <p class="body-copy">Lassés des guerres, les mondes s'unissent : le Parlement Planétaire est fondé, et la Police Planétaire voit le jour pour faire respecter la loi entre les planètes.</p>
+              </div>
+            </li>
+            <li class="lore-tl-item">
+              <span class="lore-tl-date display-title">≈ 2900</span>
+              <div class="lore-tl-card">
+                <h3 class="heading-sub">La Paix Fragile</h3>
+                <p class="body-copy">Le système prospère, mais les tensions demeurent : les vieilles civilisations se méfient des humains, et des criminels exploitent les routes commerciales interplanétaires.</p>
+              </div>
+            </li>
+            <li class="lore-tl-item">
+              <span class="lore-tl-date display-title">2940</span>
+              <div class="lore-tl-card">
+                <h3 class="heading-sub">L'Ère de Captain Future</h3>
+                <p class="body-copy">Un justicier surgit de la Lune, armé de la science la plus avancée du système. En dix ans, il devient la légende qui protège les mondes — le Wizard of Science.</p>
+              </div>
+            </li>
+          </ol>
+
+          <figure class="lore-figure" data-reveal>
+            <img src="../images/characters/planetary_parliament_session.jpg" alt="Session du Parlement Planétaire avec les délégués de toutes les planètes" loading="lazy">
+            <figcaption class="data-readout">Le Parlement Planétaire — les délégués des sept mondes, 2940 AD</figcaption>
+          </figure>
+        </div>
+
+        <!-- ── PANEL 2 : ORIGINE DE CF ── -->
+        <div class="lore-panel" data-lore-panel="origine" id="panel-origine" role="tabpanel" hidden>
+          <h2 class="heading-section" data-reveal>L'Origine de Captain Future</h2>
+
+          <div class="lore-grid-2">
+            <div class="lore-copy" data-reveal>
+              <h3 class="heading-sub">Roger et Elaine Newton</h3>
+              <p class="body-copy">
+                Deux des plus grands savants du système solaire, Roger et Elaine Newton avaient
+                choisi la Lune pour laboratoire : la base de Tycho, face cachée, loin des
+                convoitises. Roger Newton y avait construit Grag, le premier robot de sa
+                génération, et son ami Simon Wright y venait souvent travailler.
+              </p>
+              <p class="body-copy">
+                Leur fils, Curtis « Curt » Newton, naquit dans la lumière froide de la Lune.
+                Il n'avait que quelques mois lorsque des criminels attaquèrent la base pour
+                s'emparer des secrets scientifiques de Roger — et assassinèrent ses parents.
+              </p>
+
+              <h3 class="heading-sub">Le Serment</h3>
+              <p class="body-copy">
+                Élevé par les trois créatures de la base — Grag, Otho et Simon Wright — Curt
+                grandit loin des mondes, mais instruit comme aucun humain ne le fut jamais.
+                À vingt-cinq ans, il jura de venger ses parents et de protéger le système.
+                « Captain Future » était né : une identité, un serment, une légende.
+              </p>
+              <blockquote class="pulp-quote">
+                « Je serai le futur que mes parents rêvaient de bâtir. »
+                <footer>— Le serment de Curt Newton</footer>
+              </blockquote>
+            </div>
+            <figure class="lore-figure" data-reveal data-delay="120">
+              <img src="../images/characters/curt_newton_childhood_moon.jpg" alt="Le jeune Curt Newton étudiant dans la bibliothèque lunaire entouré de Grag, Otho et Simon Wright" loading="lazy">
+              <figcaption class="data-readout">L'éducation lunaire de Curt — ses trois tuteurs</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- ── PANEL 3 : CRÉATION DES FUTUREMEN ── -->
+        <div class="lore-panel" data-lore-panel="creation" id="panel-creation" role="tabpanel" hidden>
+          <h2 class="heading-section" data-reveal>La Création des Futuremen</h2>
+          <p class="lead lore-intro" data-reveal>Trois êtres hors norme, trois actes de génie scientifique — et trois pères pour un héros.</p>
+
+          <div class="lore-cards-3">
+            <article class="lore-card" data-reveal>
+              <figure><img src="../images/characters/grag_robot_portrait_official.jpg" alt="Portrait de Grag le robot" loading="lazy"></figure>
+              <h3 class="heading-sub">Grag — Construit par Roger Newton</h3>
+              <p class="body-copy">
+                Roger Newton conçut Grag dans les ateliers de Tycho : deux mètres cinquante
+                d'acier gris-bleu, une force démesurée, et une loyauté inconditionnelle.
+                À la mort de son créateur, Grag fit du nourrisson Curt sa raison d'être.
+              </p>
+            </article>
+            <article class="lore-card" data-reveal data-delay="120">
+              <figure><img src="../images/characters/otho_android_portrait_official.jpg" alt="Portrait d'Otho l'androïde" loading="lazy"></figure>
+              <h3 class="heading-sub">Otho — Le premier androïde parfait</h3>
+              <p class="body-copy">
+                Simon Wright créa Otho, le premier androïde parfait de l'histoire — si parfait
+                qu'il peut remodeler son visage à volonté. Né de la science de Simon, il fut le
+                frère de jeu de Curt, son espion, son complice.
+              </p>
+            </article>
+            <article class="lore-card" data-reveal data-delay="240">
+              <figure><img src="../images/characters/simon_wright_brain_portrait_official.jpg" alt="Portrait de Simon Wright le cerveau vivant" loading="lazy"></figure>
+              <h3 class="heading-sub">Simon Wright — Le cerveau d'Elias Wright</h3>
+              <p class="body-copy">
+                À l'origine un savant nommé Elias Wright, ami de Roger Newton, il vit son corps
+                condamné et son cerveau préservé dans un boîtier de cristal doré. Il devint
+                Simon Wright, le Cerveau Vivant — le mentor de Curt, la mémoire du système.
+              </p>
+            </article>
+          </div>
+
+          <figure class="lore-figure" data-reveal>
+            <img src="../images/characters/futuremen_group_shot_official.jpg" alt="Les quatre Futuremen sur la surface lunaire" loading="lazy">
+            <figcaption class="data-readout">Quatre êtres, un seul serment — la surface lunaire de Tycho</figcaption>
+          </figure>
+        </div>
+
+        <!-- ── PANEL 4 : SOCIÉTÉ ── -->
+        <div class="lore-panel" data-lore-panel="societe" id="panel-societe" role="tabpanel" hidden>
+          <h2 class="heading-section" data-reveal>La Société du Système Solaire — 2940</h2>
+          <p class="lead lore-intro" data-reveal>Mille ans après la première colonie, le système solaire est une civilisation complexe.</p>
+
+          <div class="lore-society-grid">
+            <article class="society-item" data-reveal>
+              <span class="society-icon" aria-hidden="true">🚀</span>
+              <h3 class="heading-sub">Commerce Interplanétaire</h3>
+              <p class="body-copy">Des routes commerciales relient les sept mondes. Les richesses de Vénus, les cristaux de Saturne, les minerais de Mars circulent entre les colonies — et attirent les pirates.</p>
+            </article>
+            <article class="society-item" data-reveal data-delay="90">
+              <span class="society-icon" aria-hidden="true">🏙️</span>
+              <h3 class="heading-sub">Terraformation &amp; Colonies</h3>
+              <p class="body-copy">Des dômes pressurisés sur Mars, des villes flottantes dans les nuages de Jupiter, des stations dans les anneaux de Saturne : chaque monde a son architecture propre.</p>
+            </article>
+            <article class="society-item" data-reveal data-delay="180">
+              <span class="society-icon" aria-hidden="true">🔬</span>
+              <h3 class="heading-sub">Xénobiologie</h3>
+              <p class="body-copy">Des reptiles géants de Vénus aux êtres de plasma de Jupiter, la vie alien est partout. La science du 30ème siècle la catalogue, la craint — et parfois la comprend.</p>
+            </article>
+            <article class="society-item" data-reveal data-delay="270">
+              <span class="society-icon" aria-hidden="true">⚡</span>
+              <h3 class="heading-sub">Transport Spatial</h3>
+              <p class="body-copy">Vaisseaux cosmiques à énergie solaire, ceintures répulseurs individuelles, communicateurs instantanés : la technologie hamiltonienne est simple, élégante — et éternellement optimiste.</p>
+            </article>
+            <article class="society-item" data-reveal data-delay="360">
+              <span class="society-icon" aria-hidden="true">🧬</span>
+              <h3 class="heading-sub">Médecine &amp; Longévité</h3>
+              <p class="body-copy">La médecine du 30ème siècle repousse la mort — comme le prouve Simon Wright, dont le cerveau vit hors de son corps. La vie humaine s'étire, et la science repousse ses limites.</p>
+            </article>
+            <article class="society-item" data-reveal data-delay="450">
+              <span class="society-icon" aria-hidden="true">⚖️</span>
+              <h3 class="heading-sub">La Loi Planétaire</h3>
+              <p class="body-copy">Le Parlement Planétaire légifère, la Police Planétaire veille — et quand la loi ne suffit plus, un justicier surgit de la Lune avec un serment.</p>
+            </article>
+          </div>
+
+          <figure class="lore-figure" data-reveal>
+            <img src="../images/characters/captain_future_vs_ul_quorn_showdown.jpg" alt="Le face-à-face entre Captain Future et Ul Quorn" loading="lazy">
+            <figcaption class="data-readout">La menace permanente — le face-à-face avec Ul Quorn</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <svg class="footer-logo" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2"/>
+          <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+        </svg>
+        <p class="display-title t-md">CAPTAIN FUTURE</p>
+        <p class="t-sm muted">Le Wizard of Science du 25ème siècle.<br>Encyclopédie hyperréaliste des pulps 1940-1951.</p>
+      </div>
+      <nav class="footer-col" aria-label="Univers">
+        <h4 class="footer-title heading-sub">L'Univers</h4>
+        <a href="futuremen.html" data-warp>Les Futuremen</a>
+        <a href="lore.html" data-warp>Le Lore</a>
+        <a href="planetes.html" data-warp>L'Atlas Solaire</a>
+        <a href="bestiary.html" data-warp>Le Bestiaire</a>
+      </nav>
+      <nav class="footer-col" aria-label="Ressources">
+        <h4 class="footer-title heading-sub">Ressources</h4>
+        <a href="romans.html" data-warp>Les 27 Romans</a>
+        <a href="galerie.html" data-warp>La Galerie</a>
+        <a href="sources.html" data-warp>Domaine Public</a>
+        <a href="https://archive.org/search?query=%22captain+future%22" target="_blank" rel="noopener">Internet Archive ↗</a>
+      </nav>
+      <div class="footer-col">
+        <h4 class="footer-title heading-sub">Coordonnées Spatiales</h4>
+        <p class="t-sm muted">Système Solaire — 2940 AD<br>Orbite lunaire · Base de Tycho<br>Salle de communication K-7<br><span class="data-readout">41°23′S · 12°31′W (cratère Tycho)</span></p>
+      </div>
+    </div>
+    <div class="footer-legal container">
+      <p class="t-xs muted">
+        © 2940 Captain Future Universe Project — Site de référence académique et culturel.
+        Basé sur les pulps originaux d'Edmond Hamilton (1940-1951), domaine public aux États-Unis.
+        Chronologie reconstituée à partir de l'esprit des textes. Statut européen : vie + 70 ans
+        (domaine public UE prévu en 2048). Aucune affinité avec les adaptations ultérieures protégées.
+        Consulter un juriste avant exploitation commerciale.
+      </p>
+      <p class="t-xs muted">Fait avec passion pour la SF pulp — dans un futur radieux du passé.</p>
+    </div>
+  </footer>
+
+  <div class="warp-overlay" id="warpOverlay" aria-hidden="true">
+    <div class="warp-lines"></div>
+    <span class="warp-text hud-label">Transition warp…</span>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+
+  <script src="../js/starfield.js"></script>
+  <script src="../js/parallax.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/transitions.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/lore.js"></script>
+</body>
+</html>

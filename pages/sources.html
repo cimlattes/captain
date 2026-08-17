@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sources & Domaine Public — Captain Future | Encyclopédie Hyperréaliste</title>
+  <meta name="description" content="Le guide juridique de Captain Future : statut du domaine public (USA/Europe), centre de téléchargement des pulps originaux 1940-1951, ressources pour les créateurs et autres héros pulp libres de droits.">
+  <meta name="author" content="Captain Future Universe Project">
+  <meta name="theme-color" content="#03050F">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sources & Domaine Public — Captain Future">
+  <meta property="og:description" content="Lisez et réutilisez librement les pulps originaux : guide juridique et centre de téléchargement.">
+  <meta property="og:image" content="../images/spreads/pulp_archive_atmosphere.jpg">
+  <meta property="og:locale" content="fr_FR">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2303050F' stroke='%23FFB830' stroke-width='3'/%3E%3Cpath d='M32 10 L38 28 L56 32 L38 36 L32 54 L26 36 L8 32 L26 28 Z' fill='%23FFB830'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Share+Tech+Mono&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/sources.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <style>
+    .preloader{position:fixed;inset:0;z-index:var(--z-preloader);background:var(--color-bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .8s var(--ease-out-expo),visibility .8s}
+    .preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .preloader-logo{width:110px;height:110px;animation:spinLogo 2.4s linear infinite}
+    .preloader-bar{width:min(320px,70vw);height:3px;background:rgba(255,184,48,.15);border-radius:999px;overflow:hidden}
+    .preloader-bar-fill{height:100%;width:0;background:var(--gradient-gold);border-radius:999px;animation:preloaderFill 2.2s var(--ease-out-expo) forwards}
+    .preloader-text{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.35em;color:var(--color-accent-cyan);text-transform:uppercase}
+  </style>
+</head>
+
+<body data-page="sources">
+
+  <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+    <svg class="preloader-logo" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2" stroke-dasharray="140 60"/>
+      <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+    </svg>
+    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    <p class="preloader-text">Vérification des archives juridiques…</p>
+  </div>
+
+  <canvas id="starfield" class="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-scanlines" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <header class="side-nav" id="sideNav" data-nav>
+    <div class="nav-logo" data-tooltip="Accueil">
+      <a href="../index.html" aria-label="Captain Future — Accueil">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2"/>
+          <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+        </svg>
+        <span class="nav-logo-text">CAPTAIN<br>FUTURE</span>
+      </a>
+    </div>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="../index.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v9h13v-9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Accueil</span></a>
+      <a href="futuremen.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Futuremen</span></a>
+      <a href="romans.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 19a2 2 0 0 1 2-2h13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Romans</span></a>
+      <a href="lore.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v6m0 6v6M3 12h6m6 0h6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Lore</span></a>
+      <a href="technologie.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L9.5 22 19 9.5h-6.5z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Techno</span></a>
+      <a href="planetes.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="16" ry="5" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(-20 12 12)"/></svg><span>Atlas</span></a>
+      <a href="antagonistes.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-3.5 17.3c.5.1.7-.2.7-.5v-1.6c-2.9-.6-3.5-2-3.7-3.2-.2-.6-.6-1.1-1.2-1.3-.4-.2-.9-.4-.3-.8.6-.3 1.3.2 1.9.9.7 1 1.9 1.4 3 .7-.1-.6-.4-1.1-.3-1.7-2-.3-3.4-1.7-3.4-3.6 0-.8.3-1.6.8-2.2-.3-.9 0-1.9.6-2.7.9-.3 1.8.2 2.2.4.6-.2 1.3-.3 2-.3s1.4.1 2 .3c.4-.2 1.3-.7 2.2-.4.6.8.9 1.8.6 2.7.5.6.8 1.4.8 2.2 0 1.9-1.4 3.3-3.4 3.6.2.8 0 1.5-.4 2.1.7.5 1.6.4 2.2 0 .4-.3.8-.6 1.2-.6.4 0 .9.3.8.7-.1.4-.5.7-.9 1.1-.6.5-.7.9-.8 1.1 0 .6.2 1.2.2 1.2-.5.2-.9.3-1.1.3A9 9 0 0 0 12 3z" fill="currentColor"/></svg><span>Vilains</span></a>
+      <a href="bestiary.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2 3 4 5 7 5-1 4-3 6-5 7l2 6-4-3-4 3 2-6c-2-1-4-3-5-7 3 0 5-2 7-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Bestiaire</span></a>
+      <a href="galerie.html" class="nav-link" data-warp><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="9" r="2" fill="currentColor"/><path d="m4 17 5-4 4 3 4-5 3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Galerie</span></a>
+      <a href="sources.html" class="nav-link" data-warp aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Sources</span></a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navDrawer"><span></span><span></span><span></span></button>
+  </header>
+
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Fermer le menu">✕</button>
+    <nav class="drawer-links" aria-label="Navigation mobile"></nav>
+    <p class="drawer-foot data-readout">2940 AD — Système Solaire</p>
+  </div>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" class="site-main">
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <header class="page-hero" data-parallax data-speed="0.22">
+      <img src="../images/spreads/pulp_archive_atmosphere.jpg" alt="" class="page-hero-bg" aria-hidden="true">
+      <div class="page-hero-overlay" aria-hidden="true"></div>
+      <div class="container page-hero-content">
+        <p class="hero-kicker hud-label" data-reveal>
+          <span class="hero-kicker-line"></span> Centre de ressources · Domaine public
+        </p>
+        <h1 class="display-hero page-hero-title" data-reveal data-delay="150">Sources &amp; Légal</h1>
+        <p class="heading-sub" data-reveal data-delay="300">Le statut juridique de Captain Future, expliqué</p>
+        <p class="lead page-hero-lead" data-reveal data-delay="450">
+          Que pouvez-vous lire ? Que pouvez-vous créer ? Où trouver les textes ? Ce guide
+          détaille le domaine public des pulps originaux, pays par pays, avec les ressources
+          et les précautions.
+        </p>
+        <div class="hero-badges" data-reveal data-delay="600">
+          <span class="badge badge-green">✓ Domaine public USA</span>
+          <span class="badge badge-gold">★ Lecture gratuite</span>
+          <span class="badge badge-red">⚠ Avertissements juridiques</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ══════════════ DISCLAIMER ══════════════ -->
+    <section class="legal-warning" aria-label="Avertissement">
+      <div class="container">
+        <div class="legal-warning-card" data-reveal>
+          <p class="hud-label">⚖️ Avertissement important</p>
+          <p class="body-copy">
+            Ce site est un projet de référence académique et culturelle. Les informations
+            juridiques ci-dessous sont fournies à titre indicatif — elles ne constituent pas
+            un conseil juridique. Le droit d'auteur varie selon les pays et évolue : consultez
+            un juriste avant toute exploitation commerciale de Captain Future ou de tout autre
+            personnage.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ GUIDE USA ══════════════ -->
+    <section class="legal-section" aria-label="Statut aux États-Unis">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">Aux États-Unis</h2>
+          <p class="section-sub lead">Le domaine public américain — vérifié via Stanford Copyright Renewal Database</p>
+        </div>
+
+        <div class="legal-grid-2" data-reveal>
+          <div class="legal-card legal-card-green">
+            <h3 class="heading-sub">✅ Ce que vous POUVEZ faire</h3>
+            <ul class="legal-list legal-list-green">
+              <li>Lire et télécharger les textes originaux des pulps 1940-1951</li>
+              <li>Réutiliser les personnages, intrigues et univers dans vos créations</li>
+              <li>Créer fan art, romans graphiques, films, jeux — même commerciaux</li>
+              <li>Adapter librement les histoires (avec vos propres visuels)</li>
+              <li>Utiliser les noms « Captain Future », « Curt Newton », « Futuremen »</li>
+            </ul>
+          </div>
+          <div class="legal-card legal-card-red">
+            <h3 class="heading-sub">❌ Ce que vous NE POUVEZ PAS faire</h3>
+            <ul class="legal-list legal-list-red">
+              <li>Utiliser les designs de l'anime Toei 1978 (protégé)</li>
+              <li>Utiliser les bandes dessinées DC Comics / récentes (protégées)</li>
+              <li>Reproduire les couvertures originales de Bergey sans vérification (illustrations : statut distinct)</li>
+              <li>Utiliser des éléments ajoutés par les adaptations postérieures</li>
+              <li>Laisser croire à un partenariat avec les ayants droit des adaptations</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="legal-figure" data-reveal>
+          <img src="../images/spreads/legal_infographic_captain_future.jpg" alt="Infographie légale : colonne verte autorisée, colonne rouge protégée" loading="lazy">
+          <figcaption class="data-readout">En bref : les textes pulp sont libres aux USA — les adaptations ultérieures ne le sont pas</figcaption>
+        </figure>
+
+        <div class="legal-table-wrap" data-reveal>
+          <table class="legal-table">
+            <caption class="hud-label">Statut américain — vérification des renouvellements</caption>
+            <thead>
+              <tr>
+                <th>Élément</th>
+                <th>Statut USA</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Textes des 27 pulps (1940-1951)</td>
+                <td><span class="status-dot green" aria-hidden="true"></span> Domaine public</td>
+                <td>Renouvellements non déposés → tombés dans le domaine public</td>
+              </tr>
+              <tr>
+                <td>Personnages (Curt Newton, Futuremen, Quorn…)</td>
+                <td><span class="status-dot green" aria-hidden="true"></span> Domaine public</td>
+                <td>Issus des textes non renouvelés</td>
+              </tr>
+              <tr>
+                <td>Anime « Captain Future » (Toei, 1978)</td>
+                <td><span class="status-dot red" aria-hidden="true"></span> Protégé</td>
+                <td>Copyright Toei — designs, musique, script</td>
+              </tr>
+              <tr>
+                <td>BD et comics récents</td>
+                <td><span class="status-dot red" aria-hidden="true"></span> Protégé</td>
+                <td>DC Comics et autres éditions modernes</td>
+              </tr>
+              <tr>
+                <td>Illustrations originales des pulps (Bergey…)</td>
+                <td><span class="status-dot yellow" aria-hidden="true"></span> À vérifier</td>
+                <td>Statut distinct des textes — cas par cas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ GUIDE EUROPE ══════════════ -->
+    <section class="legal-section" aria-label="Statut en Europe">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">En Europe (dont France)</h2>
+          <p class="section-sub lead">La règle « vie de l'auteur + 70 ans » change la donne</p>
+        </div>
+
+        <div class="legal-grid-2" data-reveal>
+          <div class="legal-card">
+            <h3 class="heading-sub">Le principe</h3>
+            <p class="body-copy">
+              En Europe, une œuvre tombe dans le domaine public 70 ans après la mort de son
+              auteur. Edmond Hamilton est mort en 1977 : ses textes entreront donc dans le
+              domaine public européen en <strong>2048</strong>. En attendant, ses œuvres sont
+              protégées en Europe — y compris en France.
+            </p>
+          </div>
+          <div class="legal-card">
+            <h3 class="heading-sub">La nuance des co-auteurs</h3>
+            <p class="body-copy">
+              Les personnages furent créés par les éditeurs Mort Weisinger et Leo Margulies.
+              Certains romans furent écrits par Joseph Samachson (mort en 1980 → domaine public
+              européen en 2051) et Manly Wade Wellman (mort en 1986 → 2057). Le calcul européen
+              dépend donc de chaque texte et de chaque co-auteur.
+            </p>
+          </div>
+        </div>
+
+        <div class="legal-table-wrap" data-reveal>
+          <table class="legal-table">
+            <caption class="hud-label">Vue d'ensemble par pays / région</caption>
+            <thead>
+              <tr>
+                <th>Pays</th>
+                <th>Règle</th>
+                <th>Statut actuel</th>
+                <th>Prévu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>États-Unis</td>
+                <td>Publication + renouvellement</td>
+                <td><span class="status-dot green" aria-hidden="true"></span> Domaine public</td>
+                <td>Déjà en vigueur</td>
+              </tr>
+              <tr>
+                <td>France / UE</td>
+                <td>Vie + 70 ans (Hamilton †1977)</td>
+                <td><span class="status-dot red" aria-hidden="true"></span> Protégé</td>
+                <td>2048</td>
+              </tr>
+              <tr>
+                <td>Canada</td>
+                <td>Vie + 70 ans (†1977)</td>
+                <td><span class="status-dot red" aria-hidden="true"></span> Protégé</td>
+                <td>2048</td>
+              </tr>
+              <tr>
+                <td>Australie</td>
+                <td>Vie + 70 ans (†1977)</td>
+                <td><span class="status-dot red" aria-hidden="true"></span> Protégé</td>
+                <td>2048</td>
+              </tr>
+              <tr>
+                <td>Japon</td>
+                <td>Vie + 70 ans (†1977)</td>
+                <td><span class="status-dot red" aria-hidden="true"></span> Protégé</td>
+                <td>2048</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="legal-note" data-reveal>
+          <p class="hud-label">📌 À retenir pour la France</p>
+          <p class="body-copy">
+            Ce site présente Captain Future comme œuvre de référence académique et culturelle,
+            avec des citations courtes et des résumés originaux. Pour une exploitation
+            commerciale en France avant 2048, consultez un juriste spécialisé. Les images du
+            site sont des œuvres dérivées originales créées pour ce projet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CENTRE DE TÉLÉCHARGEMENT ══════════════ -->
+    <section class="download-section" aria-label="Centre de téléchargement">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">Centre de Téléchargement</h2>
+          <p class="section-sub lead">Où lire et télécharger les pulps originaux</p>
+        </div>
+
+        <div class="download-grid" data-reveal>
+          <a href="https://archive.org/search?query=%22captain+future%22&sin=TXT" class="download-card" target="_blank" rel="noopener">
+            <span class="download-icon" aria-hidden="true">📚</span>
+            <div>
+              <h3 class="heading-sub">Internet Archive — Textes</h3>
+              <p class="t-sm muted">Les scans des pulps originaux et les textes OCR, gratuits et complets.</p>
+              <span class="badge badge-green">✓ Fiable · Texte intégral</span>
+            </div>
+            <span class="link-gold">Ouvrir ↗</span>
+          </a>
+          <a href="https://archive.org/search?query=%22captain+future%22" class="download-card" target="_blank" rel="noopener">
+            <span class="download-icon" aria-hidden="true">🎧</span>
+            <div>
+              <h3 class="heading-sub">Internet Archive — Audio</h3>
+              <p class="t-sm muted">Les lectures audio (Librivox et autres) quand elles existent.</p>
+              <span class="badge badge-cyan">✓ Formats variés</span>
+            </div>
+            <span class="link-gold">Ouvrir ↗</span>
+          </a>
+          <a href="https://www.captfuture.com/" class="download-card" target="_blank" rel="noopener">
+            <span class="download-icon" aria-hidden="true">🔍</span>
+            <div>
+              <h3 class="heading-sub">CaptFuture.com</h3>
+              <p class="t-sm muted">La référence bibliographique mondiale de Captain Future.</p>
+              <span class="badge badge-gold">★ Référence</span>
+            </div>
+            <span class="link-gold">Ouvrir ↗</span>
+          </a>
+          <a href="https://www.haffnerpress.com/captain-future" class="download-card" target="_blank" rel="noopener">
+            <span class="download-icon" aria-hidden="true">📖</span>
+            <div>
+              <h3 class="heading-sub">Haffner Press</h3>
+              <p class="t-sm muted">Les éditions imprimées de collection des pulps originaux.</p>
+              <span class="badge badge-purple">✓ Imprimé · Collection</span>
+            </div>
+            <span class="link-gold">Ouvrir ↗</span>
+          </a>
+          <a href="https://en.wikipedia.org/wiki/Captain_Future" class="download-card" target="_blank" rel="noopener">
+            <span class="download-icon" aria-hidden="true">🌐</span>
+            <div>
+              <h3 class="heading-sub">Wikipedia — Bibliographie</h3>
+              <p class="t-sm muted">La bibliographie complète vérifiée des 27 aventures.</p>
+              <span class="badge badge-cyan">✓ Vérifié</span>
+            </div>
+            <span class="link-gold">Ouvrir ↗</span>
+          </a>
+          <a href="https://www.isfdb.org/cgi-bin/se.cgi?arg=captain+future&type=title" class="download-card" target="_blank" rel="noopener">
+            <span class="download-icon" aria-hidden="true">🗂️</span>
+            <div>
+              <h3 class="heading-sub">ISFDB</h3>
+              <p class="t-sm muted">La base de données de la science-fiction : éditions, couvertures, dates.</p>
+              <span class="badge badge-cyan">✓ Fiable</span>
+            </div>
+            <span class="link-gold">Ouvrir ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ RESSOURCES CRÉATEURS ══════════════ -->
+    <section class="creator-section" aria-label="Ressources pour les créateurs">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">Pour les Créateurs</h2>
+          <p class="section-sub lead">Vous voulez créer avec Captain Future ? Voici le mode d'emploi</p>
+        </div>
+
+        <div class="creator-grid" data-reveal>
+          <article class="creator-card">
+            <span class="creator-num display-title">01</span>
+            <h3 class="heading-sub">Exploitable (domaine public USA)</h3>
+            <p class="t-sm muted">Textes, personnages, intrigues, univers — réutilisables librement pour vos créations, y compris commerciales, aux États-Unis.</p>
+          </article>
+          <article class="creator-card">
+            <span class="creator-num display-title">02</span>
+            <h3 class="heading-sub">À éviter (protégé)</h3>
+            <p class="t-sm muted">Designs de l'anime Toei 1978 (le costume, les visages, la musique), les BD modernes, les éléments ajoutés par les adaptations.</p>
+          </article>
+          <article class="creator-card">
+            <span class="creator-num display-title">03</span>
+            <h3 class="heading-sub">Modèle de disclaimer</h3>
+            <p class="t-sm muted">« Œuvre de fan basée sur les pulps originaux de Captain Future (1940-1951), domaine public aux États-Unis. Aucune affinité avec les adaptations protégées. »</p>
+          </article>
+          <article class="creator-card">
+            <span class="creator-num display-title">04</span>
+            <h3 class="heading-sub">Ressources juridiques gratuites</h3>
+            <p class="t-sm muted">EFF (eff.org), Creative Commons (creativecommons.org), Public Domain Review — pour approfondir vos droits et devoirs.</p>
+          </article>
+        </div>
+
+        <div class="legal-note" data-reveal>
+          <p class="hud-label">📋 Checklist avant publication</p>
+          <ul class="checklist">
+            <li>✓ Vérifier le pays de publication / distribution</li>
+            <li>✓ Créer ses propres visuels (ne pas copier anime ou BD)</li>
+            <li>✓ Mentionner clairement le statut domaine public USA</li>
+            <li>✓ Éviter toute confusion avec les marques des adaptations</li>
+            <li>✓ Consulter un juriste pour toute exploitation commerciale</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ AUTRES HÉROS PULP ══════════════ -->
+    <section class="pulpheros-section" aria-label="Autres héros pulp du domaine public">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">Autres Héros Pulp du Domaine Public</h2>
+          <p class="section-sub lead">La même époque, les mêmes rêves — d'autres légendes libres</p>
+        </div>
+
+        <div class="pulpheros-grid" data-reveal>
+          <article class="pulpheros-card">
+            <h3 class="heading-sub">Buck Rogers</h3>
+            <p class="t-sm muted">Créé en 1928 par Philip Francis Nowlan. Les premiers récits sont dans le domaine public.</p>
+            <span class="badge badge-green">✓ Partiellement DP</span>
+          </article>
+          <article class="pulpheros-card">
+            <h3 class="heading-sub">Flash Gordon</h3>
+            <p class="t-sm muted">Créé par Alex Raymond en 1934. Les premiers strips sont partiellement dans le domaine public.</p>
+            <span class="badge badge-green">✓ Partiellement DP</span>
+          </article>
+          <article class="pulpheros-card">
+            <h3 class="heading-sub">Doc Savage</h3>
+            <p class="t-sm muted">Créé en 1933 par Henry Ralston et Lester Dent (mais souvent attribué à Dent). Statut partiel.</p>
+            <span class="badge badge-green">✓ Partiellement DP</span>
+          </article>
+          <article class="pulpheros-card">
+            <h3 class="heading-sub">The Shadow</h3>
+            <p class="t-sm muted">Né en 1930 à la radio, héros de pulps à partir de 1931. Les premiers textes sont partiellement libres.</p>
+            <span class="badge badge-green">✓ Partiellement DP</span>
+          </article>
+          <article class="pulpheros-card">
+            <h3 class="heading-sub">Tarzan</h3>
+            <p class="t-sm muted">Créé par Edgar Rice Burroughs en 1912. Les premiers romans sont dans le domaine public.</p>
+            <span class="badge badge-green">✓ Premiers romans DP</span>
+          </article>
+          <article class="pulpheros-card">
+            <h3 class="heading-sub">John Carter de Mars</h3>
+            <p class="t-sm muted">Également de Burroughs (1912). La plupart des romans de la série sont dans le domaine public.</p>
+            <span class="badge badge-green">✓ Majoritairement DP</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <svg class="footer-logo" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2"/>
+          <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+        </svg>
+        <p class="display-title t-md">CAPTAIN FUTURE</p>
+        <p class="t-sm muted">Le Wizard of Science du 25ème siècle.<br>Encyclopédie hyperréaliste des pulps 1940-1951.</p>
+      </div>
+      <nav class="footer-col" aria-label="Univers">
+        <h4 class="footer-title heading-sub">L'Univers</h4>
+        <a href="futuremen.html" data-warp>Les Futuremen</a>
+        <a href="lore.html" data-warp>Le Lore</a>
+        <a href="planetes.html" data-warp>L'Atlas Solaire</a>
+        <a href="bestiary.html" data-warp>Le Bestiaire</a>
+      </nav>
+      <nav class="footer-col" aria-label="Ressources">
+        <h4 class="footer-title heading-sub">Ressources</h4>
+        <a href="romans.html" data-warp>Les 27 Romans</a>
+        <a href="galerie.html" data-warp>La Galerie</a>
+        <a href="sources.html" data-warp>Domaine Public</a>
+        <a href="https://archive.org/search?query=%22captain+future%22" target="_blank" rel="noopener">Internet Archive ↗</a>
+      </nav>
+      <div class="footer-col">
+        <h4 class="footer-title heading-sub">Coordonnées Spatiales</h4>
+        <p class="t-sm muted">Système Solaire — 2940 AD<br>Orbite lunaire · Base de Tycho<br>Salle de communication K-7<br><span class="data-readout">41°23′S · 12°31′W (cratère Tycho)</span></p>
+      </div>
+    </div>
+    <div class="footer-legal container">
+      <p class="t-xs muted">
+        © 2940 Captain Future Universe Project — Site de référence académique et culturel.
+        Basé sur les pulps originaux d'Edmond Hamilton (1940-1951), domaine public aux États-Unis.
+        Les informations juridiques sont indicatives et ne constituent pas un conseil juridique.
+        Aucune affinité avec les adaptations ultérieures protégées (anime 1978, bandes dessinées).
+        Consulter un juriste avant exploitation commerciale.
+      </p>
+      <p class="t-xs muted">Fait avec passion pour la SF pulp — dans un futur radieux du passé.</p>
+    </div>
+  </footer>
+
+  <div class="warp-overlay" id="warpOverlay" aria-hidden="true">
+    <div class="warp-lines"></div>
+    <span class="warp-text hud-label">Transition warp…</span>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+
+  <script src="../js/starfield.js"></script>
+  <script src="../js/parallax.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/transitions.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

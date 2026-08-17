@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAPTAIN FUTURE — Le Wizard of Science du 25ème Siècle | Encyclopédie Hyperréaliste</title>
+  <meta name="description" content="L'encyclopédie hyperréaliste et cinématographique de Captain Future, basée uniquement sur les pulps originaux d'Edmond Hamilton (1940-1951). Personnages, 27 romans, atlas solaire, bestiaire et galerie — domaine public USA.">
+  <meta name="keywords" content="Captain Future, Edmond Hamilton, pulp, science-fiction, 1940, Curt Newton, Futuremen, domaine public, space opera">
+  <meta name="author" content="Captain Future Universe Project">
+  <meta name="theme-color" content="#03050F">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste">
+  <meta property="og:description" content="Le Wizard of Science du 25ème siècle — 27 aventures des pulps originaux 1940-1951, en vision cinématographique hyperréaliste.">
+  <meta property="og:image" content="images/characters/futuremen_group_shot_official.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Captain Future Universe">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste">
+  <meta name="twitter:description" content="Le Wizard of Science du 25ème siècle — pulps originaux 1940-1951, vision cinématographique hyperréaliste.">
+  <meta name="twitter:image" content="images/characters/futuremen_group_shot_official.jpg">
+
+  <!-- Favicon CF (SVG inline data URI) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2303050F' stroke='%23FFB830' stroke-width='3'/%3E%3Cpath d='M32 10 L38 28 L56 32 L38 36 L32 54 L26 36 L8 32 L26 28 Z' fill='%23FFB830'/%3E%3C/svg%3E">
+
+  <!-- Polices (avec fallbacks système) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Share+Tech+Mono&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <!-- Feuilles de style -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Critical CSS inliné (peinture initiale immédiate) -->
+  <style>
+    .preloader{position:fixed;inset:0;z-index:var(--z-preloader);background:var(--color-bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .8s var(--ease-out-expo),visibility .8s}
+    .preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .preloader-logo{width:110px;height:110px;animation:spinLogo 2.4s linear infinite}
+    .preloader-bar{width:min(320px,70vw);height:3px;background:rgba(255,184,48,.15);border-radius:999px;overflow:hidden}
+    .preloader-bar-fill{height:100%;width:0;background:var(--gradient-gold);border-radius:999px;animation:preloaderFill 2.2s var(--ease-out-expo) forwards}
+    .preloader-text{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.35em;color:var(--color-accent-cyan);text-transform:uppercase}
+    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  </style>
+</head>
+
+<body data-page="accueil">
+
+  <!-- ══════════════ PRELOADER ══════════════ -->
+  <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+    <svg class="preloader-logo" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2" stroke-dasharray="140 60"/>
+      <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+    </svg>
+    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    <p class="preloader-text">Initialisation des systèmes…</p>
+  </div>
+
+  <!-- ══════════════ FONDS GLOBAUX ══════════════ -->
+  <canvas id="starfield" class="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-scanlines" aria-hidden="true"></div>
+
+  <!-- ══════════════ NAVIGATION LATÉRALE ══════════════ -->
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="side-nav" id="sideNav" data-nav>
+    <div class="nav-logo" data-tooltip="Accueil">
+      <a href="index.html" aria-label="Captain Future — Accueil">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2"/>
+          <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+        </svg>
+        <span class="nav-logo-text">CAPTAIN<br>FUTURE</span>
+      </a>
+    </div>
+
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="index.html" class="nav-link is-active" data-warp aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v9h13v-9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Accueil</span>
+      </a>
+      <a href="pages/futuremen.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Futuremen</span>
+      </a>
+      <a href="pages/romans.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 19a2 2 0 0 1 2-2h13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Romans</span>
+      </a>
+      <a href="pages/lore.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v6m0 6v6M3 12h6m6 0h6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Lore</span>
+      </a>
+      <a href="pages/technologie.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L9.5 22 19 9.5h-6.5z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Techno</span>
+      </a>
+      <a href="pages/planetes.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="16" ry="5" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(-20 12 12)"/></svg>
+        <span>Atlas</span>
+      </a>
+      <a href="pages/antagonistes.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-3.5 17.3c.5.1.7-.2.7-.5v-1.6c-2.9-.6-3.5-2-3.7-3.2-.2-.6-.6-1.1-1.2-1.3-.4-.2-.9-.4-.3-.8.6-.3 1.3.2 1.9.9.7 1 1.9 1.4 3 .7-.1-.6-.4-1.1-.3-1.7-2-.3-3.4-1.7-3.4-3.6 0-.8.3-1.6.8-2.2-.3-.9 0-1.9.6-2.7.9-.3 1.8.2 2.2.4.6-.2 1.3-.3 2-.3s1.4.1 2 .3c.4-.2 1.3-.7 2.2-.4.6.8.9 1.8.6 2.7.5.6.8 1.4.8 2.2 0 1.9-1.4 3.3-3.4 3.6.2.8 0 1.5-.4 2.1.7.5 1.6.4 2.2 0 .4-.3.8-.6 1.2-.6.4 0 .9.3.8.7-.1.4-.5.7-.9 1.1-.6.5-.7.9-.8 1.1 0 .6.2 1.2.2 1.2-.5.2-.9.3-1.1.3A9 9 0 0 0 12 3z" fill="currentColor"/></svg>
+        <span>Vilains</span>
+      </a>
+      <a href="pages/bestiary.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2 3 4 5 7 5-1 4-3 6-5 7l2 6-4-3-4 3 2-6c-2-1-4-3-5-7 3 0 5-2 7-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span>Bestiaire</span>
+      </a>
+      <a href="pages/galerie.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="9" r="2" fill="currentColor"/><path d="m4 17 5-4 4 3 4-5 3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span>Galerie</span>
+      </a>
+      <a href="pages/sources.html" class="nav-link" data-warp>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span>Sources</span>
+      </a>
+    </nav>
+
+    <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navDrawer">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Tiroir mobile -->
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Fermer le menu">✕</button>
+    <nav class="drawer-links" aria-label="Navigation mobile"></nav>
+    <p class="drawer-foot data-readout">2940 AD — Système Solaire</p>
+  </div>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" class="site-main">
+
+    <!-- ══════════════ HERO PLEIN ÉCRAN ══════════════ -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero-bg" data-parallax data-speed="0.35" aria-hidden="true">
+        <img src="images/spreads/hero_banner_comet_space.jpg" alt="" loading="eager" fetchpriority="high">
+        <div class="hero-overlay"></div>
+      </div>
+      <canvas id="particles" class="hero-particles" aria-hidden="true"></canvas>
+
+      <div class="hero-content container">
+        <p class="hero-kicker hud-label" data-reveal data-delay="200">
+          <span class="hero-kicker-line"></span> 2940 AD · Système Solaire · Pulps Originaux
+        </p>
+        <h1 class="display-hero hero-title" data-reveal data-delay="350">
+          Captain<br>Future
+        </h1>
+        <p class="hero-subtitle heading-sub" data-reveal data-delay="500">
+          Le Wizard of Science — 1940 · 1951
+        </p>
+        <p class="hero-tagline lead" data-reveal data-delay="650">
+          L'encyclopédie hyperréaliste du plus grand héros de la science-fiction pulp,
+          fidèle aux 27 aventures d'Edmond Hamilton.
+        </p>
+
+        <div class="hero-actions" data-reveal data-delay="800">
+          <a href="#univers" class="btn btn-primary btn-lg" data-scroll>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v5m0 0 3-3m-3 3-3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Explorer l'Univers
+          </a>
+          <a href="https://archive.org/search?query=%22captain+future%22&sin=TXT" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            Lire les romans gratuitement
+          </a>
+        </div>
+
+        <div class="hero-badges" data-reveal data-delay="950">
+          <span class="badge badge-gold">★ Pulps Originaux 1940-1951</span>
+          <span class="badge badge-green">✓ Domaine Public USA</span>
+          <span class="badge badge-cyan">27 Aventures · ≈ 1,28 M de mots</span>
+        </div>
+      </div>
+
+      <a href="#univers" class="scroll-indicator" data-scroll aria-label="Descendre vers le contenu">
+        <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+        <span class="scroll-text">DÉFILER</span>
+      </a>
+    </section>
+
+    <!-- ══════════════ TEASER STRIP ══════════════ -->
+    <section class="teaser-strip" id="univers" aria-label="Découverte rapide">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">Entrez dans l'Univers</h2>
+          <p class="section-sub lead">Cinq portes d'entrée vers le 25ème siècle</p>
+        </div>
+
+        <div class="teaser-grid">
+          <a href="pages/futuremen.html" class="teaser-card" data-warp data-reveal>
+            <figure class="teaser-media">
+              <img src="images/characters/captain_future_portrait_official.jpg" alt="Portrait officiel de Captain Future" loading="lazy">
+            </figure>
+            <div class="teaser-body">
+              <span class="teaser-num hud-label">01</span>
+              <h3 class="heading-sub">Captain Future</h3>
+              <p class="t-sm muted">Le héros, sa quête, son serment.</p>
+            </div>
+          </a>
+          <a href="pages/futuremen.html" class="teaser-card" data-warp data-reveal data-delay="120">
+            <figure class="teaser-media">
+              <img src="images/characters/futuremen_group_shot_official.jpg" alt="Les quatre Futuremen sur la Lune" loading="lazy">
+            </figure>
+            <div class="teaser-body">
+              <span class="teaser-num hud-label">02</span>
+              <h3 class="heading-sub">Les Futuremen</h3>
+              <p class="t-sm muted">Grag, Otho, Simon Wright — l'équipe.</p>
+            </div>
+          </a>
+          <a href="pages/romans.html" class="teaser-card" data-warp data-reveal data-delay="240">
+            <figure class="teaser-media">
+              <img src="images/ships/the_comet_ship_official.jpg" alt="Le vaisseau spatial The Comet" loading="lazy">
+            </figure>
+            <div class="teaser-body">
+              <span class="teaser-num hud-label">03</span>
+              <h3 class="heading-sub">Les 27 Romans</h3>
+              <p class="t-sm muted">La bibliothèque complète, à lire.</p>
+            </div>
+          </a>
+          <a href="pages/planetes.html" class="teaser-card" data-warp data-reveal data-delay="360">
+            <figure class="teaser-media">
+              <img src="images/planets/solar_system_2940_overview.jpg" alt="Le système solaire hamiltonien en 2940" loading="lazy">
+            </figure>
+            <div class="teaser-body">
+              <span class="teaser-num hud-label">04</span>
+              <h3 class="heading-sub">L'Atlas Solaire</h3>
+              <p class="t-sm muted">Sept mondes peuplés à explorer.</p>
+            </div>
+          </a>
+          <a href="pages/galerie.html" class="teaser-card" data-warp data-reveal data-delay="480">
+            <figure class="teaser-media">
+              <img src="images/planets/lunar_base_tycho_exterior.jpg" alt="La base lunaire de Tycho" loading="lazy">
+            </figure>
+            <div class="teaser-body">
+              <span class="teaser-num hud-label">05</span>
+              <h3 class="heading-sub">La Galerie</h3>
+              <p class="t-sm muted">La bible visuelle complète.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ ABOUT — 3 COLONNES ══════════════ -->
+    <section class="about-block" aria-label="À propos du projet">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">La Genèse</h2>
+          <p class="section-sub lead">Un créateur · une série · un univers</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card" data-reveal>
+            <div class="about-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9c0 5 4 9 9 9s9-4 9-9c0-5-4-9-9-9zm-1 13h2v2h-2zm0-10h2v7h-2z" fill="currentColor"/></svg>
+            </div>
+            <h3 class="heading-sub">Le Créateur</h3>
+            <p class="body-copy">
+              <strong>Edmond Hamilton</strong> (1904-1977), « le roi de la science-fiction cosmique »,
+              créa Captain Future en 1940 avec l'éditeur Mort Weisinger, pour le nouveau magazine
+              <em>Captain Future</em> de Better Publications — le personnage fut créé par les
+              éditeurs Mort Weisinger et Leo Margulies, annoncé à la première Worldcon en 1939.
+              Hamilton y déploya son goût des épopées interplanétaires et des civilisations
+              aliens, lui qui écrivait depuis 1926 dans <em>Weird Tales</em>.
+            </p>
+            <p class="data-readout">1904 — 1977 · Ohio, USA</p>
+          </article>
+
+          <article class="about-card" data-reveal data-delay="140">
+            <div class="about-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zm0 14a2 2 0 0 1 2-2h13" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 7h8M8 10h8M8 13h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="heading-sub">La Série</h3>
+            <p class="body-copy">
+              <strong>27 aventures</strong> publiées de l'hiver 1940 à l'automne 1951 :
+              17 romans complets dans <em>Captain Future Magazine</em> (1940-1944),
+              puis 10 aventures dans <em>Startling Stories</em> (1945-1951), signées sous le
+              pseudonyme maison « Brett Sterling » puis au nom d'Hamilton.
+              Près d'un million de mots d'aventures pulp.
+            </p>
+            <p class="data-readout">1940 — 1951 · 27 récits · ≈ 1,28 M de mots</p>
+          </article>
+
+          <article class="about-card" data-reveal data-delay="280">
+            <div class="about-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="16" ry="5" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(-20 12 12)"/></svg>
+            </div>
+            <h3 class="heading-sub">L'Univers</h3>
+            <p class="body-copy">
+              En <strong>2940 après J.-C.</strong>, tout le système solaire est colonisé :
+              Mars aux villes-dômes, Vénus aux jungles dorées, les colonies flottantes de Jupiter,
+              les anneaux habités de Saturne. La <strong>Police Planétaire</strong> et le
+              <strong>Parlement Planétaire</strong> veillent sur un système peuplé de civilisations
+              multiples — et de menaces cosmiques.
+            </p>
+            <p class="data-readout">2940 AD · 7 mondes habités · 1 Police Planétaire</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CARROUSEL ROMANS ══════════════ -->
+    <section class="novels-section" aria-label="Romans phares">
+      <div class="container">
+        <div class="section-head section-head-row" data-reveal>
+          <div>
+            <h2 class="heading-section">Romans Phares</h2>
+            <p class="section-sub lead">Quatre classiques pour commencer l'aventure</p>
+          </div>
+          <div class="carousel-controls" role="group" aria-label="Contrôles du carrousel">
+            <button class="car-btn" id="carPrev" aria-label="Roman précédent">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </button>
+            <button class="car-btn" id="carNext" aria-label="Roman suivant">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel" data-carousel aria-roledescription="carrousel" aria-label="Romans phares de Captain Future">
+        <div class="carousel-track" id="carTrack">
+
+          <article class="car-slide" aria-label="Roman 1 sur 4">
+            <figure class="car-media">
+              <img src="images/ships/the_comet_ship_official.jpg" alt="The Comet filant dans l'espace" loading="lazy">
+              <span class="car-num display-title" aria-hidden="true">01</span>
+            </figure>
+            <div class="car-body">
+              <span class="badge badge-gold">Hiver 1940 · Roman #1</span>
+              <h3 class="car-title display-title t-xl">The Space Emperor</h3>
+              <p class="t-sm muted">« Captain Future and the Space Emperor » — une voix surgit de la Ceinture
+                d'Astéroïdes et exige la reddition de la Terre. Curt Newton et les Futuremen
+                infiltrent le vaisseau-monde de l'Empereur.</p>
+              <a href="pages/romans.html" class="link-gold" data-warp>Voir la fiche →</a>
+            </div>
+          </article>
+
+          <article class="car-slide" aria-label="Roman 2 sur 4">
+            <figure class="car-media">
+              <img src="images/planets/solar_system_2940_overview.jpg" alt="Le système solaire en 2940" loading="lazy">
+              <span class="car-num display-title" aria-hidden="true">02</span>
+            </figure>
+            <div class="car-body">
+              <span class="badge badge-gold">Printemps 1940 · Roman #2</span>
+              <h3 class="car-title display-title t-xl">Calling Captain Future</h3>
+              <p class="t-sm muted">Le docteur Zarro et sa Légion du Péril kidnappent les grands scientifiques
+                de Mars pour bâtir une arme capable de soumettre le système solaire.</p>
+              <a href="pages/romans.html" class="link-gold" data-warp>Voir la fiche →</a>
+            </div>
+          </article>
+
+          <article class="car-slide" aria-label="Roman 3 sur 4">
+            <figure class="car-media">
+              <img src="images/planets/lunar_base_tycho_exterior.jpg" alt="La base lunaire de Tycho" loading="lazy">
+              <span class="car-num display-title" aria-hidden="true">03</span>
+            </figure>
+            <div class="car-body">
+              <span class="badge badge-gold">Été 1942 · Le chef-d'œuvre</span>
+              <h3 class="car-title display-title t-xl">The Comet Kings</h3>
+              <p class="t-sm muted">D'immenses êtres de lumière chevauchent une comète mortelle lancée vers
+                les colonies de Jupiter. Une course contre l'apocalypse au cœur du système.</p>
+              <a href="pages/romans.html" class="link-gold" data-warp>Voir la fiche →</a>
+            </div>
+          </article>
+
+          <article class="car-slide" aria-label="Roman 4 sur 4">
+            <figure class="car-media">
+              <img src="images/characters/futuremen_group_shot_official.jpg" alt="Les quatre Futuremen" loading="lazy">
+              <span class="car-num display-title" aria-hidden="true">04</span>
+            </figure>
+            <div class="car-body">
+              <span class="badge badge-gold">Printemps 1942</span>
+              <h3 class="car-title display-title t-xl">Outlaws of the Moon</h3>
+              <p class="t-sm muted">Les criminels les plus dangereux du système se sont évadés jusque sur la
+                Lune. Un western spatial dans les cratères de Tycho — aux portes de la base.</p>
+              <a href="pages/romans.html" class="link-gold" data-warp>Voir la fiche →</a>
+            </div>
+          </article>
+
+        </div>
+        <div class="carousel-dots" id="carDots" role="tablist" aria-label="Sélection du roman"></div>
+      </div>
+    </section>
+
+    <!-- ══════════════ L'ÉQUIPE ══════════════ -->
+    <section class="team-section" aria-label="L'équipe des Futuremen">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="heading-section">L'Équipe</h2>
+          <p class="section-sub lead">Cinq héros · un serment · un système à protéger</p>
+        </div>
+
+        <div class="team-grid">
+          <a href="pages/futuremen.html" class="team-card" data-warp data-reveal>
+            <figure class="team-portrait">
+              <img src="images/characters/captain_future_portrait_official.jpg" alt="Portrait de Captain Future, le Wizard of Science" loading="lazy">
+              <span class="team-role hud-label">Commandant</span>
+            </figure>
+            <h3 class="team-name display-title">Captain Future</h3>
+            <p class="team-sub heading-sub">Le Wizard of Science</p>
+          </a>
+
+          <a href="pages/futuremen.html" class="team-card" data-warp data-reveal data-delay="100">
+            <figure class="team-portrait">
+              <img src="images/characters/otho_android_portrait_official.jpg" alt="Portrait d'Otho, l'androïde" loading="lazy">
+              <span class="team-role hud-label">Infiltration</span>
+            </figure>
+            <h3 class="team-name display-title">Otho</h3>
+            <p class="team-sub heading-sub">L'Androïde</p>
+          </a>
+
+          <a href="pages/futuremen.html" class="team-card" data-warp data-reveal data-delay="200">
+            <figure class="team-portrait">
+              <img src="images/characters/grag_robot_portrait_official.jpg" alt="Portrait de Grag, le robot" loading="lazy">
+              <span class="team-role hud-label">Force</span>
+            </figure>
+            <h3 class="team-name display-title">Grag</h3>
+            <p class="team-sub heading-sub">Le Robot</p>
+          </a>
+
+          <a href="pages/futuremen.html" class="team-card" data-warp data-reveal data-delay="300">
+            <figure class="team-portrait">
+              <img src="images/characters/simon_wright_brain_portrait_official.jpg" alt="Portrait de Simon Wright, le cerveau vivant" loading="lazy">
+              <span class="team-role hud-label">Stratégie</span>
+            </figure>
+            <h3 class="team-name display-title">Simon Wright</h3>
+            <p class="team-sub heading-sub">Le Cerveau Vivant</p>
+          </a>
+
+          <a href="pages/futuremen.html" class="team-card" data-warp data-reveal data-delay="400">
+            <figure class="team-portrait">
+              <img src="images/characters/joan_randall_portrait_official.jpg" alt="Portrait de Joan Randall, officière de la Police Planétaire" loading="lazy">
+              <span class="team-role hud-label">Police Planétaire</span>
+            </figure>
+            <h3 class="team-name display-title">Joan Randall</h3>
+            <p class="team-sub heading-sub">L'Officière</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CHIFFRES CLÉS ══════════════ -->
+    <section class="stats-section" aria-label="Chiffres clés de la série">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat" data-reveal>
+            <span class="stat-value display-title" data-counter="27">0</span>
+            <span class="stat-label hud-label">Aventures originales</span>
+          </div>
+          <div class="stat" data-reveal data-delay="120">
+            <span class="stat-value display-title"><span data-counter="1285000" data-format="fr">0</span></span>
+            <span class="stat-label hud-label">Mots écrits</span>
+          </div>
+          <div class="stat" data-reveal data-delay="240">
+            <span class="stat-value display-title"><span data-counter="1940">0</span>—<span data-counter="1951">0</span></span>
+            <span class="stat-label hud-label">Années de publication</span>
+          </div>
+          <div class="stat" data-reveal data-delay="360">
+            <span class="stat-value display-title" data-counter="7">0</span>
+            <span class="stat-label hud-label">Mondes habités</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CITATION ══════════════ -->
+    <section class="quote-section" aria-label="Citation">
+      <div class="quote-bg" aria-hidden="true">
+        <img src="images/spreads/quote_background_stars.jpg" alt="" loading="lazy">
+        <div class="quote-overlay"></div>
+      </div>
+      <div class="container quote-inner">
+        <span class="quote-mark display-title" aria-hidden="true">“</span>
+        <blockquote class="quote-text display-title" data-reveal>
+          Captain Future, the wizard of science! He and his three Futuremen
+          fight the forces of evil throughout the Solar System.
+        </blockquote>
+        <footer class="quote-source" data-reveal data-delay="150">
+          <span class="heading-sub">— Présentation éditoriale des pulps</span>
+          <span class="data-readout">Captain Future Magazine · Hiver 1940</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ══════════════ CTA FINAL ══════════════ -->
+    <section class="cta-section" aria-label="Appel à l'action">
+      <div class="container text-center">
+        <h2 class="heading-section" data-reveal>Prêt à rejoindre la cause ?</h2>
+        <p class="lead cta-lead" data-reveal data-delay="120">
+          Les textes originaux sont libres de droits aux États-Unis et consultables
+          gratuitement. Commencez par le premier roman.
+        </p>
+        <div class="cta-actions" data-reveal data-delay="240">
+          <a href="pages/romans.html" class="btn btn-primary btn-lg" data-warp>La Bibliothèque des 27</a>
+          <a href="pages/futuremen.html" class="btn btn-outline btn-lg" data-warp>Rencontrer l'Équipe</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <svg class="footer-logo" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#FFB830" stroke-width="2"/>
+          <path d="M32 8 L39 27 L58 32 L39 37 L32 56 L25 37 L6 32 L25 27 Z" fill="#FFB830"/>
+        </svg>
+        <p class="display-title t-md">CAPTAIN FUTURE</p>
+        <p class="t-sm muted">Le Wizard of Science du 25ème siècle.<br>Encyclopédie hyperréaliste des pulps 1940-1951.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Univers">
+        <h4 class="footer-title heading-sub">L'Univers</h4>
+        <a href="pages/futuremen.html" data-warp>Les Futuremen</a>
+        <a href="pages/lore.html" data-warp>Le Lore</a>
+        <a href="pages/planetes.html" data-warp>L'Atlas Solaire</a>
+        <a href="pages/bestiary.html" data-warp>Le Bestiaire</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Ressources">
+        <h4 class="footer-title heading-sub">Ressources</h4>
+        <a href="pages/romans.html" data-warp>Les 27 Romans</a>
+        <a href="pages/galerie.html" data-warp>La Galerie</a>
+        <a href="pages/sources.html" data-warp>Domaine Public</a>
+        <a href="https://archive.org/search?query=%22captain+future%22" target="_blank" rel="noopener">Internet Archive ↗</a>
+      </nav>
+
+      <div class="footer-col">
+        <h4 class="footer-title heading-sub">Coordonnées Spatiales</h4>
+        <p class="t-sm muted">
+          Système Solaire — 2940 AD<br>
+          Orbite lunaire · Base de Tycho<br>
+          Salle de communication K-7<br>
+          <span class="data-readout">41°23′S · 12°31′W (cratère Tycho)</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-legal container">
+      <p class="t-xs muted">
+        © 2940 Captain Future Universe Project — Site de référence académique et culturel.
+        Basé sur les pulps originaux d'Edmond Hamilton (1940-1951), domaine public aux États-Unis.
+        Statut européen : vérifier vie + 70 ans (domaine public UE prévu en 2048). Aucune affinité
+        avec les adaptations ultérieures protégées (anime 1978, bandes dessinées). Consulter un juriste
+        avant toute exploitation commerciale.
+      </p>
+      <p class="t-xs muted">Fait avec passion pour la SF pulp — dans un futur radieux du passé.</p>
+    </div>
+  </footer>
+
+  <!-- Overlay de transition warp -->
+  <div class="warp-overlay" id="warpOverlay" aria-hidden="true">
+    <div class="warp-lines"></div>
+    <span class="warp-text hud-label">Transition warp…</span>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/starfield.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/parallax.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/transitions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

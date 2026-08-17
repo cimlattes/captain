@@ -1,0 +1,198 @@
+/* ══════════════════════════════════════════════════════════════
+   CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste
+   FICHIER : css/components.css
+   RÔLE   : Composants réutilisables : boutons, badges, cartes,
+            liens dorés, contrôles de carrousel.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────
+   BOUTONS HOLOGRAPHIQUES
+   ──────────────────────────────────────────────── */
+.btn {
+  --btn-pad-x: var(--space-5);
+  --btn-pad-y: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-base),
+              background-color var(--transition-base), color var(--transition-base),
+              border-color var(--transition-base);
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+.btn svg { width: 18px; height: 18px; }
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.22) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .6s var(--ease-out-expo);
+}
+.btn:hover::before { transform: translateX(120%); }
+
+.btn:active { transform: scale(.97); }
+
+/* Primaire — or cosmique */
+.btn-primary {
+  background: var(--gradient-gold);
+  color: #1A0F02;
+  box-shadow: var(--glow-gold);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(255,184,48,.6), 0 0 90px rgba(255,184,48,.22); }
+
+/* Secondaire — contour doré */
+.btn-outline {
+  background: transparent;
+  color: var(--color-accent-gold);
+  border: 1px solid var(--color-border-glow);
+}
+.btn-outline:hover { background: rgba(255, 184, 48, .08); box-shadow: var(--glow-gold); }
+
+/* Fantôme — texte simple */
+.btn-ghost {
+  background: rgba(12, 18, 35, .55);
+  color: var(--color-accent-cyan);
+  border: 1px solid var(--color-border-cyan-glow);
+}
+.btn-ghost:hover { background: rgba(0, 212, 255, .08); box-shadow: var(--glow-cyan); }
+
+/* Tailles */
+.btn-lg { --btn-pad-x: var(--space-6); --btn-pad-y: var(--space-4); font-size: var(--text-md); }
+.btn-sm { --btn-pad-x: var(--space-4); --btn-pad-y: var(--space-2); font-size: var(--text-xs); }
+
+/* ────────────────────────────────────────────────
+   BADGES
+   ──────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border: 1px solid;
+}
+.badge-gold {
+  color: var(--color-accent-gold);
+  border-color: var(--color-border-glow);
+  background: rgba(255, 184, 48, .07);
+}
+.badge-gold:hover, .badge.badge-gold { animation: badgePulse 2.8s var(--ease-in-out-smooth) infinite; }
+.badge-cyan {
+  color: var(--color-accent-cyan);
+  border-color: var(--color-border-cyan-glow);
+  background: rgba(0, 212, 255, .06);
+}
+.badge-green {
+  color: var(--color-success);
+  border-color: rgba(74, 222, 128, .3);
+  background: rgba(74, 222, 128, .07);
+}
+.badge-red {
+  color: var(--color-danger);
+  border-color: rgba(248, 113, 113, .3);
+  background: rgba(248, 113, 113, .07);
+}
+.badge-purple {
+  color: var(--color-accent-purple-soft);
+  border-color: rgba(164, 104, 224, .35);
+  background: rgba(123, 47, 190, .1);
+}
+
+/* ────────────────────────────────────────────────
+   CARTES GÉNÉRIQUES
+   ──────────────────────────────────────────────── */
+.card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  position: relative;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-glow);
+  box-shadow: var(--shadow-card-hover);
+}
+.card-hud { clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); }
+
+/* ────────────────────────────────────────────────
+   LIEN DORÉ
+   ──────────────────────────────────────────────── */
+.link-gold {
+  color: var(--color-accent-gold);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: var(--text-sm);
+  transition: text-shadow var(--transition-fast), color var(--transition-fast);
+}
+.link-gold:hover { text-shadow: var(--glow-text); color: var(--color-accent-gold-soft); }
+
+/* ────────────────────────────────────────────────
+   CONTRÔLES CARROUSEL
+   ──────────────────────────────────────────────── */
+.carousel-controls { display: flex; gap: var(--space-2); }
+.car-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-glow);
+  color: var(--color-accent-gold);
+  background: var(--color-card-bg);
+  transition: all var(--transition-fast);
+}
+.car-btn svg { width: 20px; height: 20px; }
+.car-btn:hover { background: rgba(255, 184, 48, .12); box-shadow: var(--glow-gold); transform: translateY(-2px); }
+.car-btn:active { transform: translateY(0) scale(.95); }
+
+/* ────────────────────────────────────────────────
+   TITRE DE SECTION AVEC ICÔNE
+   ──────────────────────────────────────────────── */
+.section-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto var(--space-4);
+  display: grid;
+  place-items: center;
+  color: var(--color-accent-gold);
+  border: 1px solid var(--color-border-glow);
+  border-radius: var(--radius-md);
+  background: rgba(255, 184, 48, .05);
+}
+.section-icon svg { width: 28px; height: 28px; }
+
+/* ────────────────────────────────────────────────
+   SÉPARATEUR ORNEMENTAL
+   ──────────────────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-block: var(--space-7);
+  color: var(--color-accent-gold);
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-glow), transparent);
+}

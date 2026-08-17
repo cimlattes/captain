@@ -1,0 +1,320 @@
+/* ══════════════════════════════════════════════════════════════
+   CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste
+   FICHIER : css/lore.css
+   RÔLE   : Page Lore (onglets, timeline, société) + page
+            Antagonistes (dossiers, badges de menace, duel).
+   ══════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────
+   ONGLETS DE SECTIONS
+   ──────────────────────────────────────────────── */
+.lore-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-7);
+  padding: var(--space-2);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+}
+.lore-tab {
+  flex: 1 1 auto;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+.lore-tab:hover { color: var(--color-text-primary); background: rgba(255, 184, 48, .05); }
+.lore-tab.is-active {
+  background: rgba(255, 184, 48, .1);
+  color: var(--color-accent-gold);
+  box-shadow: inset 0 -2px 0 var(--color-accent-gold);
+}
+
+.lore-panel { display: none; }
+.lore-panel.is-active { display: block; animation: ficheIn .6s var(--ease-out-expo) both; }
+
+.lore-intro { max-width: 70ch; margin: var(--space-4) 0 var(--space-7); }
+
+/* ────────────────────────────────────────────────
+   TIMELINE DU LORE
+   ──────────────────────────────────────────────── */
+.lore-timeline {
+  position: relative;
+  margin: var(--space-6) 0 var(--space-8);
+  padding-left: 0;
+}
+.lore-timeline::before {
+  content: '';
+  position: absolute;
+  left: 88px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-accent-purple), var(--color-accent-gold));
+  opacity: .5;
+}
+.lore-tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: var(--space-6);
+  padding: var(--space-4) 0;
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity .7s var(--ease-out-expo), transform .7s var(--ease-out-expo);
+}
+.lore-tl-item.in-view { opacity: 1; transform: translateX(0); }
+.lore-tl-date {
+  font-size: var(--text-md);
+  color: var(--color-accent-gold);
+  text-align: right;
+  padding-right: var(--space-4);
+  text-shadow: var(--glow-text);
+}
+.lore-tl-item::before {
+  content: '';
+  position: absolute;
+  left: 82px;
+  top: var(--space-5);
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent-gold);
+  box-shadow: var(--glow-gold);
+  border: 2px solid var(--color-bg-primary);
+  z-index: 1;
+}
+.lore-tl-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+}
+.lore-tl-card:hover { border-color: var(--color-border-glow); }
+.lore-tl-card h3 { margin-bottom: var(--space-2); color: var(--color-text-primary); }
+
+/* ────────────────────────────────────────────────
+   FIGURES & GRILLES
+   ──────────────────────────────────────────────── */
+.lore-figure { margin: var(--space-7) 0; }
+.lore-figure img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-glow);
+  box-shadow: var(--shadow-card);
+}
+.lore-figure figcaption {
+  margin-top: var(--space-3);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.lore-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  align-items: start;
+}
+.lore-copy h3 { margin: var(--space-5) 0 var(--space-2); color: var(--color-text-primary); }
+.lore-copy .body-copy + .body-copy { margin-top: var(--space-3); }
+.lore-copy .pulp-quote { margin-top: var(--space-5); }
+
+.lore-cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin: var(--space-6) 0;
+}
+.lore-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+.lore-card:hover { transform: translateY(-6px); border-color: var(--color-border-glow); }
+.lore-card figure { aspect-ratio: 16 / 10; overflow: hidden; }
+.lore-card figure img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.lore-card h3 { padding: var(--space-4) var(--space-4) 0; font-size: var(--text-md); color: var(--color-text-primary); }
+.lore-card .body-copy { padding: var(--space-2) var(--space-4) var(--space-4); color: var(--color-text-secondary); }
+
+.lore-society-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin: var(--space-6) 0 var(--space-8);
+}
+.society-item {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+.society-item:hover { border-color: var(--color-border-cyan-glow); transform: translateY(-4px); }
+.society-icon { font-size: 1.8rem; display: block; margin-bottom: var(--space-3); }
+.society-item h3 { font-size: var(--text-md); margin-bottom: var(--space-2); color: var(--color-text-primary); }
+.society-item .body-copy { color: var(--color-text-secondary); font-size: var(--text-sm); }
+
+/* ────────────────────────────────────────────────
+   PAGE ANTAGONISTES
+   ──────────────────────────────────────────────── */
+.vilains-section { padding-top: var(--space-4); }
+
+.filter-field select {
+  width: 100%;
+  min-width: 200px;
+  padding: var(--space-3) var(--space-3);
+  background: rgba(3, 5, 15, .6);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23E52B2B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 34px;
+}
+.filter-field select:focus { border-color: rgba(229, 43, 43, .5); box-shadow: 0 0 0 3px rgba(229, 43, 43, .12); outline: none; }
+
+.vilains-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.vil-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.vil-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(229, 43, 43, .35);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, .7), 0 0 0 1px rgba(229, 43, 43, .15);
+}
+
+.vil-head {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: linear-gradient(135deg, rgba(139, 0, 0, .12), transparent 60%);
+}
+.vil-portrait {
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(229, 43, 43, .3);
+}
+.vil-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.vil-head-info { display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+.vil-num { color: var(--color-villain-red-bright); }
+.vil-name { font-size: var(--text-lg); color: var(--color-text-primary); }
+.vil-epithet { font-size: var(--text-sm); color: var(--color-text-secondary); }
+
+.menace-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid color-mix(in srgb, var(--menace-color) 45%, transparent);
+  color: var(--menace-color);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--menace-color) 8%, transparent);
+}
+.menace-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--menace-color);
+  box-shadow: 0 0 10px var(--menace-color);
+  animation: twinkle 2s var(--ease-in-out-smooth) infinite;
+}
+
+.vil-body { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); flex: 1; }
+.vil-body .body-copy { color: var(--color-text-secondary); font-size: var(--text-sm); }
+.vil-body .pulp-quote { font-size: var(--text-sm); }
+.vil-body .data-readout { color: var(--color-accent-cyan); }
+
+.vil-romans { margin-top: auto; padding-top: var(--space-3); border-top: 1px solid var(--color-border-subtle); }
+.vil-roman-chips { display: flex; gap: 6px; margin-top: var(--space-2); flex-wrap: wrap; }
+.chip {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-glow);
+  color: var(--color-accent-gold);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  background: rgba(255, 184, 48, .06);
+}
+
+.vil-scene-wrap { border-top: 1px solid var(--color-border-subtle); }
+.vil-scene { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; }
+.vil-scene-wrap figcaption {
+  padding: var(--space-3) var(--space-5);
+  color: var(--color-text-secondary);
+  font-size: .6rem;
+}
+
+/* ────────────────────────────────────────────────
+   SECTION FACE-À-FACE (VS)
+   ──────────────────────────────────────────────── */
+.vs-section { padding-top: 0; }
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+}
+.vs-media img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-glow);
+  box-shadow: var(--shadow-card);
+}
+.vs-copy .body-copy + .body-copy { margin-top: var(--space-3); }
+.vs-copy .pulp-quote { margin-top: var(--space-5); }
+
+/* ────────────────────────────────────────────────
+   RESPONSIVE
+   ──────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .lore-grid-2, .vs-grid { grid-template-columns: 1fr; }
+  .lore-cards-3 { grid-template-columns: 1fr; }
+  .lore-society-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .lore-society-grid { grid-template-columns: 1fr; }
+  .vilains-grid { grid-template-columns: 1fr; }
+  .lore-timeline::before { left: 34px; }
+  .lore-tl-item { grid-template-columns: 34px 1fr; gap: var(--space-3); }
+  .lore-tl-date { font-size: var(--text-sm); padding-right: var(--space-2); }
+  .lore-tl-item::before { left: 28px; }
+  .vil-head { grid-template-columns: 96px 1fr; }
+}

@@ -1,0 +1,159 @@
+/* ══════════════════════════════════════════════════════════════
+   CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste
+   FICHIER : css/animations.css
+   RÔLE   : Toutes les keyframes et animations du site.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Preloader ─────────────────────────────────────────────── */
+@keyframes spinLogo {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes preloaderFill {
+  0% { width: 0; }
+  60% { width: 72%; }
+  100% { width: 100%; }
+}
+
+/* ── Indicateur de scroll ──────────────────────────────────── */
+@keyframes scrollWheel {
+  0% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+/* ── Lueurs pulsantes (HUD) ────────────────────────────────── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(255, 184, 48, .25), 0 0 40px rgba(255, 184, 48, .08); }
+  50% { box-shadow: 0 0 22px rgba(255, 184, 48, .5), 0 0 70px rgba(255, 184, 48, .16); }
+}
+@keyframes pulseGlowCyan {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 212, 255, .2); }
+  50% { box-shadow: 0 0 22px rgba(0, 212, 255, .45); }
+}
+
+/* ── Flottement doux (éléments décoratifs) ─────────────────── */
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ── Scintillement de texte / étoiles ──────────────────────── */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .45; }
+}
+
+/* ── Shimmer doré sur dégradés de texte ────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Glitch léger (hover des titres) ───────────────────────── */
+@keyframes glitchShift {
+  0% { clip-path: inset(0 0 85% 0); transform: translate(-2px, -1px); }
+  20% { clip-path: inset(60% 0 15% 0); transform: translate(2px, 1px); }
+  40% { clip-path: inset(30% 0 50% 0); transform: translate(-1px, 2px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(1px, -2px); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 1px); }
+  100% { clip-path: inset(0 0 85% 0); transform: translate(0, 0); }
+}
+
+/* ── Warp transition ───────────────────────────────────────── */
+@keyframes warpSpin {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1.06); }
+}
+@keyframes warpIn {
+  0% { opacity: 0; transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ── Rayons volumétriques (subtils) ────────────────────────── */
+@keyframes volumetricRays {
+  0%, 100% { opacity: .18; }
+  50% { opacity: .34; }
+}
+
+/* ── Ligne de progression de chargement page ───────────────── */
+@keyframes progressIndeterminate {
+  0% { left: -35%; }
+  100% { left: 110%; }
+}
+
+/* ── Barre de stats (remplissage) ──────────────────────────── */
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+/* ── Hologramme (lueur cyan pulsée) ────────────────────────── */
+@keyframes hologramFlicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: .7; }
+  94% { opacity: 1; }
+  97% { opacity: .85; }
+  98% { opacity: 1; }
+}
+
+/* ── Titre d'écran (scan) ──────────────────────────────────── */
+@keyframes titleScan {
+  0% { transform: translateY(-120%); }
+  100% { transform: translateY(120%); }
+}
+
+/* ── Pulse des badges ──────────────────────────────────────── */
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 184, 48, .4); }
+  50% { box-shadow: 0 0 0 6px rgba(255, 184, 48, 0); }
+}
+
+/* ── Vignette au survol (léger zoom) ───────────────────────── */
+@keyframes zoomSlow {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+/* ────────────────────────────────────────────────
+   CLASSES D'APPLICATION
+   ──────────────────────────────────────────────── */
+.anim-pulse-gold { animation: pulseGlow 3s var(--ease-in-out-smooth) infinite; }
+.anim-pulse-cyan { animation: pulseGlowCyan 3.4s var(--ease-in-out-smooth) infinite; }
+.anim-float { animation: floatSoft 5s var(--ease-in-out-smooth) infinite; }
+.anim-twinkle { animation: twinkle 2.4s var(--ease-in-out-smooth) infinite; }
+.anim-hologram { animation: hologramFlicker 6s linear infinite; }
+
+/* Glitch au survol des titres */
+.glitch-hover { position: relative; }
+.glitch-hover:hover::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: var(--color-accent-cyan);
+  opacity: .7;
+  animation: glitchShift .5s steps(2) 1;
+  pointer-events: none;
+}
+
+/* Titres avec rayons volumétriques d'arrière-plan */
+.title-rays { position: relative; }
+.title-rays::after {
+  content: '';
+  position: absolute;
+  inset: -30% -10%;
+  background: repeating-conic-gradient(from 0deg at 50% 100%,
+    transparent 0deg 8deg,
+    rgba(255, 184, 48, .05) 8deg 9deg,
+    transparent 9deg 24deg);
+  animation: volumetricRays 7s var(--ease-in-out-smooth) infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Respect du mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  .anim-pulse-gold, .anim-pulse-cyan, .anim-float,
+  .anim-twinkle, .anim-hologram, .glitch-hover:hover::before,
+  .title-rays::after { animation: none !important; }
+}

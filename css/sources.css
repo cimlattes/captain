@@ -1,0 +1,251 @@
+/* ══════════════════════════════════════════════════════════════
+   CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste
+   FICHIER : css/sources.css
+   RÔLE   : Page Sources — avertissement, cartes juridiques,
+            tables, centre de téléchargement, ressources créateurs,
+            autres héros pulp.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────
+   AVERTISSEMENT
+   ──────────────────────────────────────────────── */
+.legal-warning { padding: var(--space-7) 0 0; }
+.legal-warning-card {
+  background: linear-gradient(135deg, rgba(232, 98, 26, .08), rgba(139, 0, 0, .06));
+  border: 1px solid rgba(232, 98, 26, .3);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.legal-warning-card .hud-label { color: var(--color-accent-orange); }
+.legal-warning-card .body-copy { color: var(--color-text-secondary); max-width: 90ch; }
+
+/* ────────────────────────────────────────────────
+   SECTIONS & CARTES JURIDIQUES
+   ──────────────────────────────────────────────── */
+.legal-section { padding: var(--space-7) 0 0; }
+.legal-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+.legal-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+.legal-card h3 { margin-bottom: var(--space-3); }
+.legal-card-green { border-color: rgba(74, 222, 128, .3); }
+.legal-card-green h3 { color: var(--color-success); }
+.legal-card-red { border-color: rgba(248, 113, 113, .3); }
+.legal-card-red h3 { color: var(--color-danger); }
+.legal-card .body-copy { color: var(--color-text-secondary); }
+
+.legal-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0;
+}
+.legal-list li {
+  position: relative;
+  padding-left: var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+.legal-list li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-mono);
+}
+.legal-list-green li::before { content: '✓'; color: var(--color-success); }
+.legal-list-red li::before { content: '✕'; color: var(--color-danger); }
+
+/* Figure infographie */
+.legal-figure { margin: var(--space-7) 0; }
+.legal-figure img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-glow);
+  box-shadow: var(--shadow-card);
+}
+.legal-figure figcaption {
+  margin-top: var(--space-3);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+/* ────────────────────────────────────────────────
+   TABLES JURIDIQUES
+   ──────────────────────────────────────────────── */
+.legal-table-wrap {
+  margin: var(--space-6) 0;
+  overflow-x: auto;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+.legal-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+.legal-table caption {
+  text-align: left;
+  margin-bottom: var(--space-3);
+  color: var(--color-accent-gold);
+}
+.legal-table th {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-accent-cyan);
+  text-align: left;
+  padding: var(--space-3);
+  border-bottom: 2px solid var(--color-border-glow);
+}
+.legal-table td {
+  padding: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-subtle);
+  vertical-align: middle;
+}
+.legal-table tbody tr:hover { background: rgba(255, 184, 48, .04); }
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.status-dot.green { background: var(--color-success); box-shadow: 0 0 8px rgba(74, 222, 128, .7); }
+.status-dot.red { background: var(--color-danger); box-shadow: 0 0 8px rgba(248, 113, 113, .7); }
+.status-dot.yellow { background: var(--color-warning); box-shadow: 0 0 8px rgba(251, 191, 36, .7); }
+
+/* Note légale */
+.legal-note {
+  margin: var(--space-6) 0;
+  padding: var(--space-5);
+  background: linear-gradient(135deg, rgba(0, 212, 255, .06), rgba(123, 47, 190, .06));
+  border: 1px solid var(--color-border-cyan-glow);
+  border-radius: var(--radius-lg);
+}
+.legal-note .hud-label { color: var(--color-accent-cyan); margin-bottom: var(--space-3); }
+.legal-note .body-copy { color: var(--color-text-secondary); }
+
+/* ────────────────────────────────────────────────
+   CENTRE DE TÉLÉCHARGEMENT
+   ──────────────────────────────────────────────── */
+.download-section { padding: var(--space-8) 0 0; }
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+.download-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-5);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.download-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-glow);
+  box-shadow: var(--shadow-card-hover);
+}
+.download-icon { font-size: 2rem; filter: drop-shadow(0 0 10px rgba(255,184,48,.4)); }
+.download-card h3 { font-size: var(--text-md); margin-bottom: 4px; }
+.download-card .t-sm { margin-bottom: var(--space-2); }
+.download-card .badge { margin-bottom: var(--space-2); }
+
+/* ────────────────────────────────────────────────
+   RESSOURCES CRÉATEURS
+   ──────────────────────────────────────────────── */
+.creator-section { padding: var(--space-8) 0 0; }
+.creator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+.creator-card {
+  position: relative;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  overflow: hidden;
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+.creator-card:hover { border-color: var(--color-border-glow); transform: translateY(-4px); }
+.creator-num {
+  position: absolute;
+  top: -10px;
+  right: var(--space-3);
+  font-size: 3.2rem;
+  color: rgba(255, 184, 48, .14);
+  line-height: 1;
+}
+.creator-card h3 { font-size: var(--text-md); margin-bottom: var(--space-2); color: var(--color-text-primary); }
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.checklist li {
+  padding-left: var(--space-5);
+  position: relative;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+.checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--color-success); font-family: var(--font-mono); }
+
+/* ────────────────────────────────────────────────
+   AUTRES HÉROS PULP
+   ──────────────────────────────────────────────── */
+.pulpheros-section { padding: var(--space-8) 0 0; }
+.pulpheros-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+.pulpheros-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+.pulpheros-card:hover { border-color: var(--color-border-glow); transform: translateY(-4px); }
+.pulpheros-card h3 { font-size: var(--text-md); }
+.pulpheros-card .badge { align-self: flex-start; margin-top: var(--space-2); }
+
+/* ────────────────────────────────────────────────
+   RESPONSIVE
+   ──────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .legal-grid-2, .download-grid { grid-template-columns: 1fr; }
+  .creator-grid { grid-template-columns: repeat(2, 1fr); }
+  .pulpheros-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .creator-grid, .pulpheros-grid { grid-template-columns: 1fr; }
+  .download-card { grid-template-columns: 1fr; }
+}

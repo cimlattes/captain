@@ -1,0 +1,187 @@
+/* ══════════════════════════════════════════════════════════════
+   CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste
+   FICHIER : css/typography.css
+   RÔLE   : Système typographique complet.
+            Orbitron (display) · Rajdhani (headings) · Exo 2 (body)
+            Share Tech Mono (data) · Special Elite (pulps)
+   ══════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────
+   POLICES (Google Fonts — gratuites)
+   Fallbacks locaux : system-ui. Pour un usage hors
+   ligne total, télécharger les .woff2 dans /fonts/.
+   ──────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Share+Tech+Mono&family=Special+Elite&display=swap');
+
+/* ────────────────────────────────────────────────
+   CLASSES DE BASE
+   ──────────────────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ────────────────────────────────────────────────
+   DISPLAY (Orbitron) — titres spectaculaires
+   ──────────────────────────────────────────────── */
+.display-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.display-hero {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--text-hero);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  background: var(--gradient-gold-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 4px 30px rgba(255, 184, 48, 0.35));
+}
+
+/* ────────────────────────────────────────────────
+   HEADINGS (Rajdhani) — sous-titres, sections
+   ──────────────────────────────────────────────── */
+.heading-section {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.heading-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.4em;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  box-shadow: var(--glow-gold);
+}
+
+.heading-sub {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-gold);
+}
+
+/* ────────────────────────────────────────────────
+   CORPS DE TEXTE (Exo 2)
+   ──────────────────────────────────────────────── */
+.lead {
+  font-size: var(--text-md);
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.body-copy {
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  line-height: 1.75;
+}
+
+.muted { color: var(--color-text-secondary); }
+
+/* ────────────────────────────────────────────────
+   MONO / DATA (Share Tech Mono) — HUD technique
+   ──────────────────────────────────────────────── */
+.hud-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-cyan);
+}
+
+.data-readout {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+/* ────────────────────────────────────────────────
+   PULP (Special Elite) — citations originales
+   ──────────────────────────────────────────────── */
+.pulp-quote {
+  font-family: var(--font-pulp);
+  font-size: var(--text-md);
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  position: relative;
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--color-accent-orange);
+  background: linear-gradient(90deg, rgba(232, 98, 26, 0.06), transparent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.pulp-quote footer {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-gold);
+  margin-top: var(--space-3);
+}
+
+/* ────────────────────────────────────────────────
+   UTILITAIRES DE TAILLE
+   ──────────────────────────────────────────────── */
+.t-xs { font-size: var(--text-xs); }
+.t-sm { font-size: var(--text-sm); }
+.t-base { font-size: var(--text-base); }
+.t-md { font-size: var(--text-md); }
+.t-lg { font-size: var(--text-lg); }
+.t-xl { font-size: var(--text-xl); }
+.t-2xl { font-size: var(--text-2xl); }
+.t-3xl { font-size: var(--text-3xl); }
+
+/* Graisses Orbitron */
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-800 { font-weight: 800; }
+.fw-900 { font-weight: 900; }
+
+/* Utilitaires */
+.text-center { text-align: center; }
+.text-uppercase { text-transform: uppercase; }
+.text-gold { color: var(--color-accent-gold); }
+.text-cyan { color: var(--color-accent-cyan); }
+.text-orange { color: var(--color-accent-orange); }
+.tracking-wide { letter-spacing: 0.12em; }
+.tracking-wider { letter-spacing: 0.2em; }
+.tracking-widest { letter-spacing: 0.32em; }
+
+/* ────────────────────────────────────────────────
+   RÈGLES RESPONSIVE DE BASE POUR LES TITRES
+   ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .display-hero { letter-spacing: 0.06em; }
+  .heading-section { letter-spacing: 0.08em; }
+}

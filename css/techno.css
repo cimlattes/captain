@@ -1,0 +1,267 @@
+/* ══════════════════════════════════════════════════════════════
+   CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste
+   FICHIER : css/techno.css
+   RÔLE   : Page Technologie (fiches, blueprint, specs) + Atlas
+            Solaire (globe 3D, panneau, cartes planètes).
+   ══════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────
+   SOMMAIRE TECH
+   ──────────────────────────────────────────────── */
+.tech-index { padding: var(--space-7) 0 0; }
+.tech-index-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+}
+.tech-index-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+  padding: var(--space-5) var(--space-3);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+.tech-index-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-border-glow);
+  box-shadow: var(--glow-gold);
+}
+.tech-index-icon { font-size: 1.7rem; filter: drop-shadow(0 0 8px rgba(255,184,48,.5)); }
+.tech-index-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+.tech-index-cat { color: var(--color-accent-cyan); font-size: .55rem; }
+
+/* ────────────────────────────────────────────────
+   FICHES TECH
+   ──────────────────────────────────────────────── */
+.tech-section { padding: var(--space-7) 0; }
+.tech-fiche {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+}
+.tech-fiche-reverse .tech-visual { order: 2; }
+.tech-fiche-reverse .tech-info { order: 1; }
+
+.tech-visual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-card);
+}
+.tech-visual img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.tech-info .hud-label { margin-bottom: var(--space-3); color: var(--color-accent-gold); }
+.tech-name { font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--color-text-primary); }
+.tech-info .body-copy { color: var(--color-text-secondary); margin-bottom: var(--space-4); }
+.tech-info .pulp-quote { margin-top: var(--space-4); }
+
+/* Coins blueprint */
+.blueprint-frame { position: relative; }
+.blueprint-frame img { filter: saturate(.9) brightness(.92) contrast(1.05); }
+.blueprint-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: var(--color-accent-cyan);
+  border-style: solid;
+  border-width: 0;
+  opacity: .8;
+  pointer-events: none;
+  z-index: 2;
+}
+.blueprint-corner.tl { top: 10px; left: 10px; border-top-width: 2px; border-left-width: 2px; }
+.blueprint-corner.tr { top: 10px; right: 10px; border-top-width: 2px; border-right-width: 2px; }
+.blueprint-corner.bl { bottom: 10px; left: 10px; border-bottom-width: 2px; border-left-width: 2px; }
+.blueprint-corner.br { bottom: 10px; right: 10px; border-bottom-width: 2px; border-right-width: 2px; }
+
+/* Spécifications */
+.specs { display: grid; gap: 8px; }
+.spec {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-3);
+  padding: 8px 12px;
+  background: rgba(3, 5, 15, .4);
+  border-left: 2px solid var(--color-border-glow);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.spec dt {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-accent-cyan);
+}
+.spec dd {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+
+/* CTA tech */
+.tech-cta { padding-top: 0; }
+.tech-cta .cta-lead { max-width: 56ch; margin: var(--space-5) auto var(--space-6); }
+
+/* ────────────────────────────────────────────────
+   GLOBE 3D
+   ──────────────────────────────────────────────── */
+.globe-section { padding-top: var(--space-4); }
+.globe-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border-glow);
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(123, 47, 190, .12), transparent 55%),
+    radial-gradient(ellipse at 75% 80%, rgba(0, 130, 220, .08), transparent 50%),
+    var(--color-bg-secondary);
+  box-shadow: var(--shadow-card);
+  height: 560px;
+}
+.globe-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  touch-action: none;
+}
+.globe-canvas:active { cursor: grabbing; }
+
+.globe-hud { position: absolute; left: 0; right: 0; display: flex; justify-content: center; gap: var(--space-3); z-index: 5; pointer-events: none; }
+.globe-hud .btn { pointer-events: auto; }
+.globe-hud-top { top: var(--space-4); }
+.globe-hud-bottom { bottom: var(--space-4); }
+#globeStatus {
+  background: rgba(3, 5, 15, .75);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  backdrop-filter: blur(4px);
+}
+
+/* Panneau planète */
+.globe-section .container { position: relative; }
+.planet-panel {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: min(340px, calc(100% - 2 * var(--space-4)));
+  max-height: 520px;
+  overflow-y: auto;
+  background: rgba(8, 12, 26, .96);
+  border: 1px solid var(--color-border-glow);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card), var(--glow-gold);
+  z-index: 10;
+  animation: ficheIn .4s var(--ease-out-expo) both;
+}
+.planet-panel-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  display: grid;
+  place-items: center;
+  transition: all var(--transition-fast);
+}
+.planet-panel-close:hover { color: var(--color-accent-gold); border-color: var(--color-border-glow); }
+.planet-panel-body img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.planet-panel-info { padding: var(--space-5); }
+.planet-panel-info .hud-label { color: var(--color-accent-cyan); margin-bottom: var(--space-2); }
+.planet-panel-info h2 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+.planet-panel-info .body-copy { color: var(--color-text-secondary); margin-bottom: var(--space-4); }
+.planet-panel .spec { grid-template-columns: 120px 1fr; }
+
+/* ────────────────────────────────────────────────
+   CARTES PLANÈTES
+   ──────────────────────────────────────────────── */
+.planets-cards-section { padding-top: var(--space-6); }
+.planets-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+.planet-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.planet-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-border-glow);
+  box-shadow: var(--shadow-card-hover);
+}
+.planet-card-img { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.planet-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.planet-card:hover .planet-card-img img { transform: scale(1.06); }
+.planet-card-type {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  padding: 4px 10px;
+  background: rgba(3, 5, 15, .8);
+  border: 1px solid var(--color-border-cyan-glow);
+  border-radius: var(--radius-full);
+  color: var(--color-accent-cyan);
+  font-size: .55rem;
+}
+.planet-card-body { padding: var(--space-4); }
+.planet-card-body h3 { font-size: var(--text-md); margin-bottom: var(--space-2); color: var(--color-text-primary); }
+
+/* ────────────────────────────────────────────────
+   RESPONSIVE
+   ──────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .tech-index-grid { grid-template-columns: repeat(3, 1fr); }
+  .planets-cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 1024px) {
+  .tech-fiche { grid-template-columns: 1fr; gap: var(--space-5); }
+  .tech-fiche-reverse .tech-visual { order: 0; }
+  .tech-fiche-reverse .tech-info { order: 1; }
+}
+@media (max-width: 768px) {
+  .tech-index-grid { grid-template-columns: repeat(2, 1fr); }
+  .planets-cards-grid { grid-template-columns: 1fr; }
+  .globe-wrap { height: 440px; }
+  .globe-hud-bottom { flex-direction: column; align-items: center; }
+  .spec { grid-template-columns: 1fr; gap: 2px; }
+  .planet-panel { top: auto; bottom: var(--space-4); right: var(--space-3); left: var(--space-3); width: auto; max-height: 46%; }
+}

@@ -1,0 +1,111 @@
+/* ══════════════════════════════════════════════════════════════
+   CAPTAIN FUTURE — L'Encyclopédie Hyperréaliste
+   FICHIER : css/responsive.css
+   RÔLE   : Breakpoints mobile / tablette / desktop / 4K.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────
+   TABLETTE LARGE / PORTABLE — 1200px
+   ──────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .teaser-grid { grid-template-columns: repeat(3, 1fr); }
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ────────────────────────────────────────────────
+   TABLETTE — 1024px
+   ──────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  :root {
+    --nav-width: 72px;
+  }
+  .nav-logo-text { display: none; }
+  .nav-link span { font-size: .55rem; letter-spacing: .08em; }
+  .car-slide { grid-template-columns: 1fr 1fr; min-height: 380px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-card { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); align-items: start; }
+  .about-icon { margin-bottom: 0; }
+}
+
+/* ────────────────────────────────────────────────
+   MOBILE — 768px
+   ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --nav-width: 0px;
+  }
+  .site-main, .site-footer { margin-left: 0; }
+
+  /* Navigation → burger + tiroir */
+  .side-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    height: var(--header-height);
+    padding: var(--space-2) var(--space-4);
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-glow);
+  }
+  .nav-logo svg { width: 38px; height: 38px; }
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+
+  /* Sections */
+  section { padding: var(--space-7) 0; }
+  .hero-content { padding-top: calc(var(--header-height) + var(--space-8)); }
+
+  .teaser-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+
+  .car-slide { grid-template-columns: 1fr; min-height: 0; }
+  .car-media { aspect-ratio: 16 / 9; }
+  .car-media::after {
+    background: linear-gradient(180deg, transparent 40%, rgba(12, 18, 35, .95) 100%);
+  }
+  .car-body { padding: var(--space-5); }
+  .car-num { font-size: 3rem; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+
+  .quote-text { font-size: var(--text-lg); }
+}
+
+/* ────────────────────────────────────────────────
+   PETIT MOBILE — 520px
+   ──────────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .teaser-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .hero-actions .btn { width: 100%; }
+  .cta-actions .btn { width: 100%; }
+  .hero-badges { flex-direction: column; align-items: flex-start; }
+  .scroll-indicator { display: none; }
+  .section-head-row { flex-direction: column; align-items: flex-start; }
+}
+
+/* ────────────────────────────────────────────────
+   TRÈS GRAND ÉCRAN — 4K (1920+)
+   ──────────────────────────────────────────────── */
+@media (min-width: 1920px) {
+  :root {
+    --container-max: 1600px;
+  }
+  .teaser-grid { grid-template-columns: repeat(5, 1fr); gap: var(--space-6); }
+  .car-slide { min-height: 520px; }
+}
+
+/* ────────────────────────────────────────────────
+   ORIENTATION PAYSAGE SUR MOBILE — confort
+   ──────────────────────────────────────────────── */
+@media (max-width: 900px) and (orientation: landscape) {
+  .hero-content { padding-top: calc(var(--header-height) + var(--space-5)); }
+  .hero-title { font-size: var(--text-2xl); }
+}
